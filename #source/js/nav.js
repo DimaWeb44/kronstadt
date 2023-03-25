@@ -1,4 +1,3 @@
-
 // ____________________________________________________________________________________________ nav.js
 eyeBtn = document.querySelector('.eye-btn')
 eyeBtn.addEventListener('click', () => {

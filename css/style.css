@@ -249,7 +249,7 @@ body {
 .preview1__right__lines span:nth-child(3)::before {
   content: "";
   position: absolute;
-  width: 1374px;
+  width: 1530px;
   height: 6px;
   background-color: #3F4040;
   top: 0;
@@ -259,7 +259,7 @@ body {
 .preview1__right__box {
   margin-top: 137px;
   margin-left: 350px;
-  height: 1654px;
+  height: auto;
   min-width: 1871px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -366,7 +366,7 @@ body {
       -ms-flex-align: end;
           align-items: flex-end;
 }
-.preview1__right__box__left__item1__text__icons div img {
+.preview1__right__box__left__item1__text__icons div svg {
   margin-right: 26px;
 }
 .preview1__right__box__left__item1__text__icons div span {
@@ -413,8 +413,11 @@ body {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
 }
-.item2 .preview1__right__box__left__item1__text__icons div img {
+.item2 .preview1__right__box__left__item1__text__icons div svg {
   margin: 0 auto;
   margin-bottom: 16px;
 }
@@ -451,7 +454,7 @@ body {
   width: 100%;
   height: auto;
   background-color: transparent;
-  margin-top: 90px;
+  margin-top: auto;
 }
 .item3 .preview1__right__box__left__item1__text__icons {
   display: block;
@@ -478,4 +481,131 @@ body {
 }
 .item3 .preview1__right__box__left__item1__text__icons div .item1-title {
   margin-top: 19px;
+}
+
+.nav {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  gap: 9px;
+}
+.nav__button {
+  color: #ffffff;
+  background-color: #000000;
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 64px;
+  font-weight: 500;
+  line-height: 108px;
+  letter-spacing: 0.04em;
+  height: 186px;
+  padding: 0 85px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.nav__button:active {
+  background-color: #3F4040;
+}
+
+.menu {
+  gap: 103px;
+}
+.menu:active {
+  background-color: #000000;
+}
+
+.home-btn {
+  width: 75px;
+  height: 83px;
+}
+
+.visually-impaired .preview1__left__column {
+  background-color: #3F4040;
+}
+.visually-impaired .preview1__left__column .preview1__left__column__bottom h3 {
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 68px;
+}
+.visually-impaired .preview1__right__box {
+  min-width: 2275px;
+  margin: auto 38px 288px 224px;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: end;
+}
+.visually-impaired .preview1__right__box__left {
+  width: 1721px;
+  margin-top: 100px;
+}
+.visually-impaired .preview1__right__box__left .preview1__right__box__left__item1 {
+  background-color: #D3CFCC;
+}
+.visually-impaired .preview1__right__box__left .preview1__right__box__left__item1__text h4 {
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 68px;
+  color: #000000;
+}
+.visually-impaired .preview1__right__box__left .preview1__right__box__left__item1__text p {
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 46px;
+  font-weight: 400;
+  line-height: 50px;
+  color: #000000;
+}
+.visually-impaired .preview1__right__box__left .preview1__right__box__left__item1__text__icons div svg path {
+  stroke: #000000;
+}
+.visually-impaired .preview1__right__box__left .preview1__right__box__left__item1__text__icons div svg g {
+  fill: #000000;
+}
+.visually-impaired .preview1__right__box__left .preview1__right__box__left__item1__text__icons div svg rect {
+  stroke: #000000;
+}
+.visually-impaired .preview1__right__box__left .preview1__right__box__left__item1__text__icons div span {
+  color: #000000;
+}
+.visually-impaired .preview1__right__box__left .preview1__right__box__left__item1__text__icons div .item1-title {
+  font-size: 46px;
+}
+.visually-impaired .preview1__right__box__right {
+  height: 100%;
+}
+.visually-impaired .item3 .preview1__right__box__left__item1__text {
+  background-color: #D3CFCC;
+}
+.visually-impaired .item3 .preview1__right__box__left__item1__text h4 {
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 68px;
+  color: #000000;
+}
+.visually-impaired .item3 .preview1__right__box__left__item1__text p {
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 46px;
+  font-weight: 400;
+  line-height: 50px;
+  color: #000000;
+  margin-bottom: 0;
+}
+.visually-impaired .item3 .preview1__right__box__left__item1__text__icons {
+  display: none;
 }
