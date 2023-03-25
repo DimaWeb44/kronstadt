@@ -41,26 +41,32 @@
     flex-direction: row;
     align-items: center;
     gap: 263px;
+
     &__photo {
       min-width: 832px;
+
       & img {
         width: 100%;
         height: auto;
       }
     }
+
     &__text {
       text-align: left;
+
       & h1 {
         @include text(140px, 500, 144px);
         letter-spacing: 0.04em;
         color: $text-color;
         margin-bottom: 110px;
       }
+
       & p {
         @include text(50px, 400, 60px);
         letter-spacing: 0.04em;
         color: $text-color;
         margin-bottom: 90px;
+
         &:last-child {
           margin-bottom: 0;
         }
@@ -69,6 +75,167 @@
   }
 }
 
+//________________________________________________________________________________________________________article-list
+
+.article-list {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: $bg-light-gray;
+  position: relative;
+
+  &__top {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto 1240px;
+    height: 1138px;
+    grid-column-gap: 40px;
+
+    &__article-1 {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      position: relative;
+
+      & .article-img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+
+      & .article-number {
+        position: absolute;
+        top: 100px;
+        right: 120px;
+        @include text(260px, 100, 260px);
+        letter-spacing: -0.02em;
+        color: $text-color;
+      }
+
+      & .article-title {
+        position: absolute;
+        top: 100px;
+        left: 120px;
+        right: 680px;
+        @include text(140px, 500, 144px);
+        letter-spacing: 0.04em;
+        color: $text-color;
+      }
+    }
+  }
+
+  & .article-4 {
+    background-color: $bg-dark-gray;
+    display: flex;
+    align-items: flex-end;
+
+    & .article-title {
+      @include text(100px, 500, 104px);
+      right: 440px;
+    }
+
+    & .article-img {
+      object-fit: contain;
+      width: 100%;
+      height: auto;
+      object-position: bottom;
+    }
+  }
+
+  & .article-3 {
+    position: relative;
+    background-color: $bg-gray;
+    height: 1022px;
+
+    & .article-title {
+      left: 210px;
+      right: 616px;
+    }
+
+    & .article-line-3 {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background-color: $bg-blue;
+      width: 80px;
+      height: 720px;
+    }
+  }
+
+  & .article-2 {
+    height: 1152px;
+    z-index: 2;
+    margin-top: -130px;
+    overflow: visible;
+
+    & .article-line-2 {
+      position: absolute;
+      width: 120px;
+      height: 130px;
+      top: 0;
+      right: -120px;
+      background-color: $bg-light-blue;
+      z-index: 3;
+    }
+
+    & .article-line-2-1 {
+      position: absolute;
+      width: 600px;
+      height: 80px;
+      top: -80px;
+      left: 0;
+      background-color: $bg-blue;
+      z-index: 3;
+      display: grid;
+      grid-template-columns: 120px auto;
+
+      & span:first-child {
+        background-color: $bg-gray;
+      }
+    }
+
+    & .article-number {
+      bottom: 152px;
+      left: 120px;
+      top: auto;
+      right: auto;
+    }
+  }
+
+  &__bottom {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1460px auto;
+    min-height: 1022px;
+    grid-column-gap: 40px;
+  }
+}
+
+.panel {
+  position: absolute;
+  bottom: 0;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  width: 546px;
+  height: 180px;
+  background-color: $button-color;
+  display: flex;
+  flex-direction: row;
+}
+
+.panel-prev, .panel-next {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:active {
+    background-color: $bg-dark-gray;
+  }
+}
 
 //________________________________________________________________________________________________________preview1
 
@@ -426,7 +593,7 @@
     background-color: $button-color;
     @include text(64px, 500, 108px);
     letter-spacing: 0.04em;
-    height: 186px;
+    height: 180px;
     padding: 0 85px;
     display: flex;
     flex-direction: row;
