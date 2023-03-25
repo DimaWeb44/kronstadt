@@ -4,6 +4,72 @@
 @import "mixins";
 @import "vars";
 
+//________________________________________________________________________________________________________index
+.page {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+}
+
+.main {
+  width: 100%;
+  height: 100%;
+  background: url("../../img/main/bg.png") center/cover no-repeat;
+  position: relative;
+
+  &__touch {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 180px;
+    background-color: $button-color;
+    @include flex-center;
+    @include text(64px, 500, 104px);
+
+    & svg {
+      margin-right: 92px;
+    }
+  }
+
+  &__box {
+    max-width: 3000px;
+    width: 100%;
+    margin: 0 auto;
+    height: calc(100% - 180px);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 263px;
+    &__photo {
+      min-width: 832px;
+      & img {
+        width: 100%;
+        height: auto;
+      }
+    }
+    &__text {
+      text-align: left;
+      & h1 {
+        @include text(140px, 500, 144px);
+        letter-spacing: 0.04em;
+        color: $text-color;
+        margin-bottom: 110px;
+      }
+      & p {
+        @include text(50px, 400, 60px);
+        letter-spacing: 0.04em;
+        color: $text-color;
+        margin-bottom: 90px;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+
 //________________________________________________________________________________________________________preview1
 
 .preview1 {
