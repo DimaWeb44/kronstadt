@@ -89,7 +89,7 @@
     width: 100%;
     display: grid;
     grid-template-columns: auto 1240px;
-    height: 1138px;
+    height: 1140px;
     grid-column-gap: 40px;
 
     &__article-1 {
@@ -107,7 +107,7 @@
       & .article-number {
         position: absolute;
         top: 100px;
-        right: 120px;
+        right: 174px;
         @include text(260px, 100, 260px);
         letter-spacing: -0.02em;
         color: $text-color;
@@ -116,7 +116,7 @@
       & .article-title {
         position: absolute;
         top: 100px;
-        left: 120px;
+        left: 174px;
         right: 680px;
         @include text(140px, 500, 144px);
         letter-spacing: 0.04em;
@@ -188,7 +188,7 @@
       background-color: $bg-blue;
       z-index: 3;
       display: grid;
-      grid-template-columns: 120px auto;
+      grid-template-columns: 174px auto;
 
       & span:first-child {
         background-color: $bg-gray;
@@ -234,6 +234,63 @@
 
   &:active {
     background-color: $bg-dark-gray;
+  }
+}
+
+.article-list-next {
+  & .article-list__top {
+    grid-template-columns: auto 1649px;
+
+    & .article-list__top__article-1 {
+      background-color: $bg-gray;
+    }
+
+    & .article-7 {
+      & .article-number {
+        bottom: 49px;
+        left: 174px;
+        top: auto;
+        right: auto;
+      }
+
+      & .article-title {
+        @include text(100px, 500, 104px);
+        left: 174px;
+        right: 370px;
+      }
+    }
+  }
+
+  & .article-list__bottom {
+    grid-template-columns: auto;
+
+    & .article-list__top__article-1 {
+      overflow: visible;
+      position: relative;
+      & .article-number {
+        bottom: 84px;
+        left: 174px;
+        top: auto;
+        right: auto;
+      }
+      & .article-line-2-1 {
+        position: absolute;
+        height: 40px;
+        top: -40px;
+        width: 802px;
+        left: 0;
+        z-index: 3;
+        display: grid;
+        grid-template-columns: 402px 220px auto;
+        & span:first-child {
+          background-color: $bg-blue;
+        }
+        & span:last-child {
+          background-color: $bg-light-gray;
+        }
+
+      }
+    }
   }
 }
 
