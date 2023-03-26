@@ -92,7 +92,7 @@
   }
 }
 
-//________________________________________________________________________________________________________article-list
+//_____________________________________________________________________________________________________article-list
 
 .article-list {
   width: 100%;
@@ -353,6 +353,7 @@
       background-color: $bg-gray;
       display: flex;
       flex-direction: column;
+      z-index: 1;
 
       &__top {
         width: 100%;
@@ -689,6 +690,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    z-index: 9;
 
     &:active {
       background-color: $bg-dark-gray;
@@ -717,7 +719,7 @@
   position: absolute;
   top: 0;
   left: 50%;
-  transform: translate(-50%,0);
+  transform: translate(-50%, 0);
   z-index: 9;
   overflow: hidden;
   transition: 0.3s;
@@ -727,7 +729,7 @@
   align-items: center;
 }
 
-.language-panel-active{
+.language-panel-active {
   height: 450px;
   top: -445px;
   transition: 0.3s;
@@ -738,12 +740,206 @@
   height: 83px;
 }
 
+//________________________________________________________________________________________________________preview2
+.preview2 {
+  background: none;
+
+  & .preview1__left__column__top__img {
+    position: static;
+    transform: translate(0, 0);
+    width: 100%;
+  }
+
+  & .preview1__right {
+    display: grid;
+    grid-template-columns: 516px 413px 501px 517px 516px auto;
+    margin-bottom: 664px;
+    align-items: end;
+  }
+
+  & .preview1__left__column__top {
+    max-height: 1000px;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+  }
+}
+
+.column-1 {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: '';
+    width: 100vw;
+    height: 122px;
+    bottom: -272px;
+    left: -1154px;
+    background-color: $bg-light-gray;
+    z-index: 0;
+  }
+
+  &__photo {
+    width: 100%;
+    overflow: hidden;
+    height: auto;
+
+    & img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__text {
+    background-color: $bg-light-gray;
+    color: $text-color-black;
+    padding: 76px 36px 76px 86px;
+    letter-spacing: 0.04em;
+    @include text(50px, 700, 54px);
+    position: relative;
+    z-index: 1;
+
+    & .flag {
+      position: absolute;
+      top: 70px;
+      left: 30px;
+    }
+
+  }
+
+  & .year-1 {
+    position: absolute;
+    height: 122px;
+    display: flex;
+    align-items: center;
+    padding: 40px;
+    background-color: $bg-dark-gray;
+    color: $text-color;
+    @include text(64px, 300, 64px);
+    bottom: -272px;
+    left: 64px;
+    width: max-content;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 6px;
+      height: 279px;
+      left: 0;
+      bottom: 0;
+      background-color: $bg-dark-gray;
+    }
+  }
+}
+
+.column-4 {
+  &::before {
+    content: none;
+  }
+}
+
+.column-5 {
+  &::before {
+    content: none;
+  }
+
+  & .column-1__text {
+    background-color: $bg-gray;
+    color: $text-color;
+    padding: 48px 45px;
+    @include text(34px, 400, 38px);
+  }
+}
+
+.column-2 {
+  & .column-1__photo {
+    background-color: $bg-dark-gray;
+    padding: 83px 41px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 60px;
+
+    & .column-item {
+      display: flex;
+      flex-direction: column;
+
+      & h3 {
+        @include text(100px, 700, 100px);
+        letter-spacing: 0.04em;
+        color: $text-color;
+        margin-bottom: 10px;
+      }
+
+      & span {
+        @include text(34px, 400, 38px);
+        letter-spacing: 0.04em;
+        color: $text-color;
+      }
+    }
+  }
+
+  & .year-1 {
+    left: 0;
+  }
+}
+
+.column-3 {
+  &::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 40px;
+    left: 0;
+    top: 0;
+    background-color: $bg-light-blue;
+    z-index: 2;
+  }
+
+  & .column-1__photo {
+    padding-left: 80px;
+    gap: 40px;
+
+    & .column-item {
+      flex-direction: row;
+
+      & div {
+        margin-left: auto;
+        display: flex;
+        flex-direction: column;
+        width: 60%;
+      }
+
+      & svg {
+        width: max-content;
+      }
+    }
+  }
+
+  & .column-1__text {
+    padding-left: 80px;
+  }
+
+  & .year-1 {
+    display: none;
+  }
+}
+
+
+//____________________________________________________________________________________________visually-impaired
+
 .visually-impaired {
   & .preview1__left__column {
     background-color: $bg-dark-gray;
 
     & .preview1__left__column__bottom h3 {
-      @include text(64px, 700, 68px)
+      @include text(64px, 700, 68px);
+      hyphens: auto;
+      hyphenate-limit-chars: 6 3 3;
+      hyphenate-limit-lines: 2;
+      hyphenate-limit-last: always;
+      hyphenate-limit-zone: 8%;
     }
   }
 
@@ -819,5 +1015,100 @@
     &__icons {
       display: none;
     }
+  }
+
+  & .preview2 {
+    & .preview1__left__column__top {
+      max-height: 810px;
+    }
+
+    & .preview1__right {
+      margin-bottom: 460px;
+
+    }
+  }
+
+  & .column-1 {
+    &::before {
+      bottom: -180px;
+    }
+
+    &__text {
+      font-size: 64px;
+      hyphens: auto;
+      hyphenate-limit-chars: 6 3 3;
+      hyphenate-limit-lines: 2;
+      hyphenate-limit-last: always;
+      hyphenate-limit-zone: 8%;
+    }
+
+    & .year-1 {
+      @include text(64px, 500, 64px);
+      bottom: -180px;
+
+      &::before {
+        height: 180px;
+      }
+    }
+  }
+
+  & .column-5 {
+    & .column-1__text {
+      background-color: $bg-dark-gray;
+      letter-spacing: 0.02em;
+      @include text(44px, 400, 50px);
+    }
+  }
+
+  & .column-2 {
+    & .column-1__photo {
+      padding: 40px 41px;
+      padding-bottom: 10px;
+      row-gap: 40px;
+
+      & .column-item {
+        & span {
+          @include text(42px, 400, 40px);
+          letter-spacing: 0.02em;
+          color: $text-color;
+        }
+      }
+    }
+
+    & .year-1 {
+      left: 0;
+    }
+  }
+
+  .column-3 {
+    &::before {
+      width: 18px;
+      background-color: #FFFFFF;
+    }
+
+    & .column-1__photo {
+      padding-left: 60px;
+      gap: 40px;
+
+      & .column-item {
+        flex-direction: row;
+
+        & div {
+          margin-left: auto;
+          display: flex;
+          flex-direction: column;
+          width: 60%;
+        }
+
+        & svg {
+          width: max-content;
+        }
+      }
+    }
+
+    & .column-1__text {
+      padding-left: 60px;
+    }
+
   }
 }

@@ -1,6 +1,6 @@
 //_________________________________________________________________________________________________transitionsPage
 
-$('.page').click(function (event) {
+$('.page').length && $('.page').click(function (event) {
   var x = event.pageX;
   var y = event.pageY;
 
@@ -16,9 +16,8 @@ $('.page').click(function (event) {
 });
 
 
-
 $(document).ready(function () {
-  $('.panel-next').click(function () {
+  $('.panel-next').length && $('.panel-next').click(function () {
     $('.page').css("display", "none");
     $('.article-page-1').fadeOut(700,);
     $('.article-page-2').fadeIn(1400);
