@@ -102,6 +102,31 @@ body {
   height: 100vh;
   z-index: 1;
 }
+.page__box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.page-next {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+}
+.page-next__box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
 
 .main {
   width: 100%;
@@ -342,6 +367,7 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  z-index: 1;
 }
 
 .panel-prev, .panel-next {
@@ -361,20 +387,27 @@ body {
   background-color: #3F4040;
 }
 
-.article-list-next .article-list__top {
+.article-page-2 {
+  display: none;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+}
+.article-page-2 .article-list__top {
   -ms-grid-columns: auto 1649px;
   grid-template-columns: auto 1649px;
 }
-.article-list-next .article-list__top .article-list__top__article-1 {
+.article-page-2 .article-list__top .article-list__top__article-1 {
   background-color: #6A7A7E;
 }
-.article-list-next .article-list__top .article-7 .article-number {
+.article-page-2 .article-list__top .article-7 .article-number {
   bottom: 49px;
   left: 174px;
   top: auto;
   right: auto;
 }
-.article-list-next .article-list__top .article-7 .article-title {
+.article-page-2 .article-list__top .article-7 .article-title {
   font-family: "Helvetica Neue", sans-serif;
   font-size: 100px;
   font-weight: 500;
@@ -382,21 +415,21 @@ body {
   left: 174px;
   right: 370px;
 }
-.article-list-next .article-list__bottom {
+.article-page-2 .article-list__bottom {
   -ms-grid-columns: auto;
   grid-template-columns: auto;
 }
-.article-list-next .article-list__bottom .article-list__top__article-1 {
+.article-page-2 .article-list__bottom .article-list__top__article-1 {
   overflow: visible;
   position: relative;
 }
-.article-list-next .article-list__bottom .article-list__top__article-1 .article-number {
+.article-page-2 .article-list__bottom .article-list__top__article-1 .article-number {
   bottom: 84px;
   left: 174px;
   top: auto;
   right: auto;
 }
-.article-list-next .article-list__bottom .article-list__top__article-1 .article-line-2-1 {
+.article-page-2 .article-list__bottom .article-list__top__article-1 .article-line-2-1 {
   position: absolute;
   height: 40px;
   top: -40px;
@@ -408,11 +441,17 @@ body {
   -ms-grid-columns: 402px 220px auto;
   grid-template-columns: 402px 220px auto;
 }
-.article-list-next .article-list__bottom .article-list__top__article-1 .article-line-2-1 span:first-child {
+.article-page-2 .article-list__bottom .article-list__top__article-1 .article-line-2-1 span:first-child {
   background-color: #66B1BD;
 }
-.article-list-next .article-list__bottom .article-list__top__article-1 .article-line-2-1 span:last-child {
+.article-page-2 .article-list__bottom .article-list__top__article-1 .article-line-2-1 span:last-child {
   background-color: #D3CFCC;
+}
+
+.left-panel {
+  height: 100%;
+  width: 620px;
+  background-color: #3F4040;
 }
 
 .preview1 {
@@ -846,6 +885,52 @@ body {
 }
 .menu:active {
   background-color: #000000;
+}
+
+.language-btn {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+}
+
+.language-panel {
+  height: 0;
+  width: 180px;
+  background-color: #000000;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  z-index: 9;
+  overflow: hidden;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 160px 120px 160px;
+  grid-template-rows: 160px 120px 160px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.language-panel-active {
+  height: 450px;
+  top: -445px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 .home-btn {

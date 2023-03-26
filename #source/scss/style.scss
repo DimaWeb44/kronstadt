@@ -10,6 +10,23 @@
   width: 100vw;
   height: 100vh;
   z-index: 1;
+
+  &__box {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.page-next {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+
+  &__box {
+    display: flex;
+    flex-direction: row;
+  }
 }
 
 .main {
@@ -223,6 +240,7 @@
   background-color: $button-color;
   display: flex;
   flex-direction: row;
+  z-index: 1;
 }
 
 .panel-prev, .panel-next {
@@ -237,7 +255,13 @@
   }
 }
 
-.article-list-next {
+.article-page-2 {
+  display: none;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+
   & .article-list__top {
     grid-template-columns: auto 1649px;
 
@@ -267,12 +291,14 @@
     & .article-list__top__article-1 {
       overflow: visible;
       position: relative;
+
       & .article-number {
         bottom: 84px;
         left: 174px;
         top: auto;
         right: auto;
       }
+
       & .article-line-2-1 {
         position: absolute;
         height: 40px;
@@ -282,9 +308,11 @@
         z-index: 3;
         display: grid;
         grid-template-columns: 402px 220px auto;
+
         & span:first-child {
           background-color: $bg-blue;
         }
+
         & span:last-child {
           background-color: $bg-light-gray;
         }
@@ -292,6 +320,12 @@
       }
     }
   }
+}
+
+.left-panel {
+  height: 100%;
+  width: 620px;
+  background-color: $bg-dark-gray;
 }
 
 //________________________________________________________________________________________________________preview1
@@ -668,6 +702,35 @@
   &:active {
     background-color: $button-color;
   }
+}
+
+.language-btn {
+  height: 100%;
+  @include flex-center;
+  position: relative;
+}
+
+.language-panel {
+  height: 0;
+  width: 180px;
+  background-color: $button-color;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%,0);
+  z-index: 9;
+  overflow: hidden;
+  transition: 0.3s;
+  display: grid;
+  grid-template-rows: 160px 120px 160px;
+  justify-content: center;
+  align-items: center;
+}
+
+.language-panel-active{
+  height: 450px;
+  top: -445px;
+  transition: 0.3s;
 }
 
 .home-btn {
