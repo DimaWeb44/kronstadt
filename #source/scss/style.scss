@@ -975,8 +975,10 @@
     &::before {
       bottom: -362px;
     }
+
     & .year-1 {
       bottom: -362px;
+
       &::before {
         height: 362px;
       }
@@ -985,8 +987,10 @@
 
   & .column-5 {
     margin-bottom: -120px;
+
     & .column-1__text {
       padding: 72px 60px;
+
       & h3 {
         font-weight: 700;
         font-size: 50px;
@@ -1000,6 +1004,7 @@
 
     & .year-1 {
       bottom: -242px;
+
       &::before {
         height: 242px;
       }
@@ -1011,8 +1016,97 @@
 //__________________________________________________________________________________________________preview4
 
 
+.preview4 {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
 
+  &__left {
+    height: 100%;
+    width: 1260px;
+    display: flex;
+    justify-content: right;
+    position: relative;
 
+    & span {
+      position: absolute;
+      top: 750px;
+      left: 151px;
+      @include text(260px, 100, 304px);
+      color: $text-color-black;
+      letter-spacing: -0.02em;
+    }
+
+    &__photo {
+      position: absolute;
+      width: 840px;
+      height: 1066px;
+      bottom: 0;
+      left: 0;
+      overflow: hidden;
+      z-index: 3;
+
+      & img {
+        min-height: 100%;
+        min-width: 100%;
+        object-fit: cover;
+      }
+    }
+
+    &__column {
+      height: 100%;
+      width: 612px;
+      background-color: $bg-gray;
+      display: flex;
+      flex-direction: column;
+      z-index: 1;
+      position: relative;
+
+      &__photo {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, 0);
+
+        & img {
+          max-width: none;
+          min-width: 100%;
+          min-height: 100%;
+        }
+      }
+    }
+  }
+
+  &__right {
+    flex: 1;
+    padding: 100px 400px 180px 500px;
+    display: flex;
+    align-items: center;
+
+    &__text {
+      & h1 {
+        font-weight: 500;
+        font-size: 140px;
+        line-height: 144px;
+        color: $text-color-black;
+        margin-bottom: 152px;
+      }
+
+      & p {
+        font-weight: 700;
+        font-size: 50px;
+        line-height: 54px;
+        letter-spacing: 0.04em;
+        color: $text-color-black;
+        margin-bottom: 52px;
+        &:last-child{
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
 
 
 //____________________________________________________________________________________________visually-impaired
@@ -1208,7 +1302,7 @@
     }
   }
 
-  &.column-3 {
+  .column-3 {
     &::before {
       width: 18px;
       background-color: #FFFFFF;
@@ -1244,6 +1338,7 @@
     & .preview1__left__column__top {
       max-height: 900px;
     }
+
     & .preview1__left__column__bottom {
       & p {
         font-weight: 400;
@@ -1260,8 +1355,10 @@
       &::before {
         bottom: -362px;
       }
+
       & .year-1 {
         bottom: -362px;
+
         &::before {
           height: 362px;
         }
@@ -1270,8 +1367,10 @@
 
     & .column-5 {
       margin-bottom: -120px;
+
       & .column-1__text {
         padding: 72px 60px;
+
         & h3 {
           font-weight: 700;
           font-size: 64px;
@@ -1282,6 +1381,7 @@
 
       & .year-1 {
         bottom: -242px;
+
         &::before {
           height: 242px;
         }
