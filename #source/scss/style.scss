@@ -1462,6 +1462,133 @@
   }
 }
 
+.slide-outside {
+  @include flex-center;
+
+  & .slider-2-slide__photo {
+    width: 1400px;
+    max-height: 1175px;
+    height: min-content;
+    top: 100px;
+    right: 0;
+    position: absolute;
+    @include flex-center;
+
+    & img {
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: contain;
+      z-index: 99;
+    }
+  }
+}
+
+.lightbox {
+  position: fixed;
+  overflow: hidden;
+  z-index: 9999;
+  width: 0;
+  height: 0;
+  text-align: center;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 300ms ease-in;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.lightbox video {
+  display: inline-block;
+  vertical-align: middle;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 300ms ease-in;
+}
+
+.lightbox:target {
+  width: 100vw;
+  height: 100vh;
+  outline: none;
+  opacity: 1;
+  transition: opacity 300ms ease-in;
+}
+
+.lightbox:target video {
+  opacity: 1;
+  transition: opacity 300ms ease-in;
+}
+
+.video-box {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+
+  & .menu {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+:root {
+  --video-width: 100vw;
+  --video-height: 100vh;
+}
+
+@media (min-aspect-ratio: 16/9) {
+  :root {
+    --video-height: 56.25vw;
+  }
+}
+
+@media (max-aspect-ratio: 16/9) {
+  :root {
+    --video-width: 177.78vh;
+  }
+}
+
+video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  object-fit: cover;
+  width: var(--video-width);
+  height: var(--video-height);
+  transform: translate(-50%, -50%);
+}
+
+.nav-video {
+  z-index: 9999;
+  width: 100%;
+  bottom: 0;
+}
+
+.play-pause {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  background-color: $bg-gray;
+  @include flex-center;
+  transform: translate(-50%, 0);
+  width: 954px;
+
+  &::before {
+    position: absolute;
+    content: '';
+    height: 100%;
+    left: 0;
+    width: 57px;
+    background-color: $button-color;
+  }
+}
+
+.close-btn {
+  width: 80px;
+  height: 120px;
+}
+
+
 //____________________________________________________________________________________________visually-impaired
 
 .visually-impaired {
