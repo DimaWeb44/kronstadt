@@ -1100,7 +1100,8 @@
         letter-spacing: 0.04em;
         color: $text-color-black;
         margin-bottom: 52px;
-        &:last-child{
+
+        &:last-child {
           margin-bottom: 0;
         }
       }
@@ -1108,6 +1109,358 @@
   }
 }
 
+//_____________________________________________________________________________________________________section
+
+.section {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1017px auto 1060px;
+
+  &__left {
+    width: 100%;
+    display: grid;
+    grid-template-rows: 935px 159px auto;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 40px;
+      height: 1066px;
+      background-color: $bg-blue;
+      z-index: 1;
+    }
+
+    &__text {
+      width: 840px;
+      height: 935px;
+      background-color: $bg-gray;
+      overflow: hidden;
+    }
+
+    &__btn {
+      height: 100%;
+    }
+
+    &__photo {
+      width: 880px;
+      height: 1066px;
+      background-color: $bg-gray;
+      position: relative;
+      overflow: hidden;
+    }
+
+    &__line-1 {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 40px;
+      height: 1094px;
+      background-color: $bg-light-gray;
+    }
+
+    &__line-2 {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 40px;
+      height: 648px;
+      background-color: $bg-light-blue;
+    }
+  }
+
+  &__text {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding: 174px 470px 274px 261px;
+    color: $text-color-black;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      width: 6px;
+      background-color: $bg-light-blue;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      width: 6px;
+      background-color: $bg-dark-gray;
+    }
+
+    & h1 {
+      font-weight: 500;
+      font-size: 140px;
+      line-height: 144px;
+      letter-spacing: 0.04em;
+      margin-bottom: 65px;
+    }
+
+    & h3 {
+      font-weight: 700;
+      font-size: 50px;
+      line-height: 54px;
+      letter-spacing: 0.04em;
+      margin-bottom: 120px;
+    }
+
+    & p {
+      font-weight: 400;
+      font-size: 34px;
+      line-height: 38px;
+      letter-spacing: 0.02em;
+      margin-bottom: 30px;
+    }
+
+    &__btn {
+      position: fixed;
+      left: 1017px;
+      top: 1094px;
+      width: 154px;
+      height: 418px;
+      display: flex;
+      flex-direction: column;
+
+      &__top {
+        background-color: $button-color;
+        @include flex-center;
+        width: 100%;
+        height: 50%;
+      }
+
+      &__bottom {
+        background-color: $bg-dark-gray;
+        @include flex-center;
+        width: 100%;
+        height: 50%;
+      }
+    }
+  }
+
+  &__right {
+    background-color: $bg-gray;
+    width: 100%;
+    position: relative;
+  }
+}
+
+
+.section__slider-1 {
+  margin-left: 40px;
+  width: 840px;
+  height: 100%;
+}
+
+.slider-1-btn {
+  height: 100%;
+  width: 800px;
+  display: flex;
+  flex-direction: row;
+}
+
+.prev-slider-1 {
+  width: 50%;
+  height: 100%;
+  background: $button-color;
+  @include flex-center;
+}
+
+.next-slider-1 {
+  width: 50%;
+  height: 100%;
+  background: $bg-dark-gray;
+  @include flex-center;
+}
+
+
+.section__slider-2 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 180px;
+    width: 795px;
+    height: 516px;
+    background-color: $bg-light-gray;
+  }
+
+  & .slick-list {
+    overflow: visible;
+  }
+}
+
+.slider-2-btn {
+  z-index: 5;
+  position: absolute;
+  bottom: 700px;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+}
+
+.prev-slider-2 {
+  width: 211px;
+  height: 160px;
+  background: $bg-dark-gray;
+  @include flex-center;
+}
+
+.next-slider-2 {
+  width: 211px;
+  height: 160px;
+  background: $bg-dark-gray;
+  @include flex-center;
+}
+
+.gallery-slider-2 {
+  width: 187px;
+  height: 160px;
+  background: $button-color;
+  @include flex-center;
+}
+
+.slider-2-slide {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+
+  &__text {
+    z-index: 999;
+    position: absolute;
+    left: 0;
+    bottom: 180px;
+    width: 795px;
+    height: 516px;
+    background-color: $bg-light-gray;
+    padding: 244px 83px 60px 83px;
+    display: flex;
+    align-items: flex-start;
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 54px;
+    letter-spacing: 0.04em;
+    color: $text-color-black;
+    -webkit-hyphens: auto;
+    -webkit-hyphenate-limit-before: 3;
+    -webkit-hyphenate-limit-after: 3;
+    -webkit-hyphenate-limit-chars: 6 3 3;
+    -webkit-hyphenate-limit-lines: 2;
+    -webkit-hyphenate-limit-last: always;
+    -webkit-hyphenate-limit-zone: 8%;
+    -moz-hyphens: auto;
+    -moz-hyphenate-limit-chars: 6 3 3;
+    -moz-hyphenate-limit-lines: 2;
+    -moz-hyphenate-limit-last: always;
+    -moz-hyphenate-limit-zone: 8%;
+    -ms-hyphens: auto;
+    -ms-hyphenate-limit-chars: 6 3 3;
+    -ms-hyphenate-limit-lines: 2;
+    -ms-hyphenate-limit-last: always;
+    -ms-hyphenate-limit-zone: 8%;
+    hyphens: auto;
+    hyphenate-limit-chars: 6 3 3;
+    hyphenate-limit-lines: 2;
+    hyphenate-limit-last: always;
+    hyphenate-limit-zone: 8%;
+
+    & span {
+      position: absolute;
+      font-weight: 100;
+      font-size: 130px;
+      line-height: 152px;
+      letter-spacing: -0.02em;
+      color: $text-color-black;
+      top: 66px;
+      left: 75px;
+    }
+  }
+
+  &__photo {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+
+    & img {
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+.slider-1-slide {
+  position: relative;
+
+  &__text {
+    width: 840px;
+    height: 930px;
+    background-color: $bg-gray;
+    padding: 88px 88px 250px 88px;
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 54px;
+    letter-spacing: 0.04em;
+    color: $text-color;
+
+    & span {
+      position: absolute;
+      font-weight: 100;
+      font-size: 130px;
+      line-height: 152px;
+      letter-spacing: -0.02em;
+      color: #FFFFFF;
+      bottom: 88px;
+      left: 88px;
+    }
+  }
+
+  &__photo {
+    width: 840px;
+    height: 1066px;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+
+    & img {
+      min-width: 100%;
+      min-height: auto;
+      object-fit: contain;
+    }
+  }
+}
+
+.slide-video {
+  width: 100%;
+  height: 100%;
+  @include flex-center;
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: url("../../img/section/icon/icon.svg");
+    width: 210px;
+    height: 210px;
+    z-index: 2;
+  }
+
+  &::after {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+}
 
 //____________________________________________________________________________________________visually-impaired
 
