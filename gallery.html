@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="./lib/slider/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="./lib/slider/slick-theme.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <title>Галерея</title>
+</head>
+<body>
+<div class="wrapper">
+<div class="gallery">
+
+</div></div>
+<script type="text/javascript" src="./lib/jquery.min.js"></script>
+<script type="text/javascript" src="./lib/slider/slick.js"></script>
+<script type="text/javascript" src="./js/main.js"></script>
+<script type="text/javascript">
+  $('.gallery__slider-big').length && $('.gallery__slider-big').slick({
+    arrows: true,
+    dots: false,
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    centerMode: true,
+    centerPadding: '668px',
+    asNavFor: '.section__slider-small',
+    appendArrows: $('.slider-1-btn'),
+    prevArrow: $('.prev-slider-1'),
+    nextArrow: $('.next-slider-1'),
+  });
+
+  $('.section__slider-small').length && $('.section__slider-small').slick({
+    arrows: false,
+    dots: false,
+    infinite: true,
+    slidesToShow: 8,
+    centerMode: true,
+    slidesToScroll: 1,
+    focusOnSelect: true,
+    asNavFor: '.gallery__slider-big',
+  });
+</script>
+</body>
+</html>

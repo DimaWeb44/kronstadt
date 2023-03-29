@@ -54,6 +54,35 @@
     nextArrow: $('.next-slider-2'),
     cssEase: 'linear',
   });
+
+  $('.gallery__slider-big').length && $('.gallery__slider-big').slick({
+    arrows: true,
+    dots: false,
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    centerMode: true,
+    centerPadding: '668px',
+    /*  centerPadding: '868px',*/
+    asNavFor: '.gallery__slider-small',
+    prevArrow: $('.prev-gallery__slider-big'),
+    nextArrow: $('.next-gallery__slider-big'),
+  });
+
+  $('.gallery__slider-small').length && $('.gallery__slider-small').slick({
+    arrows: true,
+    dots: false,
+    infinite: true,
+    slidesToShow: 7,
+    centerMode: true,
+    slidesToScroll: 1,
+    centerPadding: '200px',
+    focusOnSelect: true,
+    appendArrows: $('.gallery__slider-small-btn'),
+    prevArrow: $('.prev-gallery__slider-small'),
+    nextArrow: $('.next-gallery__slider-small'),
+    asNavFor: '.gallery__slider-big',
+  });
 </script>
 </body>
 </html>
