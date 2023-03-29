@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="./lib/slider/slick.css"/>
     <link rel="stylesheet" type="text/css" href="./lib/slider/slick-theme.css"/>
+    <link rel="stylesheet" type="text/css" href="../lib/modal/jquery.modal.min.css"/>
     <link rel="stylesheet" type="text/css" href="./css/style.css">
     <title>Статья</title>
 </head>
@@ -14,6 +15,7 @@
 </div>
 <script type="text/javascript" src="./lib/jquery.min.js"></script>
 <script type="text/javascript" src="./lib/slider/slick.js"></script>
+<script type="text/javascript" src="./lib/modal/jquery.modal.min.js"></script>
 <script type="text/javascript" src="./js/main.js"></script>
 <script type="text/javascript">
   $('.section__slider-1').length && $('.section__slider-1').slick({
@@ -75,13 +77,36 @@
     infinite: true,
     slidesToShow: 7,
     centerMode: true,
-    slidesToScroll: 1,
+    slidesToScroll: 2,
     centerPadding: '200px',
     focusOnSelect: true,
     appendArrows: $('.gallery__slider-small-btn'),
     prevArrow: $('.prev-gallery__slider-small'),
     nextArrow: $('.next-gallery__slider-small'),
     asNavFor: '.gallery__slider-big',
+  });
+
+  $('.gallery__slider-full-photo').length && $('.gallery__slider-full-photo').slick({
+    arrows: true,
+    dots: false,
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    appendArrows: $('.gallery__slider-small-btn'),
+    prevArrow: $('.prev-gallery__slider-full-photo'),
+    nextArrow: $('.next-gallery__slider-full-photo'),
+  });
+
+  $('a[data-modal]').click(function (event) {
+    $(this).modal({
+      escapeClose: false,
+      clickClose: false,
+      showClose: false,
+      closeExisting: false,
+      fadeDuration: 300,
+      fadeDelay: 0,
+    });
+    return false;
   });
 </script>
 </body>
