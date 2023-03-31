@@ -16,6 +16,7 @@
 <script type="text/javascript" src="./lib/jquery.min.js"></script>
 <script type="text/javascript" src="./lib/slider/slick.js"></script>
 <script type="text/javascript" src="./lib/modal/jquery.modal.min.js"></script>
+<script type="text/javascript" src="../lib/highlight/jquery.mark.min.js"></script>
 <script type="text/javascript" src="./js/main.js"></script>
 <script type="text/javascript">
   $('.section__slider-1').length && $('.section__slider-1').slick({

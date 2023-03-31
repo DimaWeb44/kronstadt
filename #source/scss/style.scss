@@ -679,6 +679,7 @@
   display: flex;
   flex-direction: row;
   gap: 9px;
+  z-index: 999;
 
   &__button {
     color: $text-color;
@@ -1116,12 +1117,14 @@
   height: 100%;
   display: grid;
   grid-template-columns: 1017px auto 1060px;
+  transition: 0.3s;
 
   &__left {
     width: 100%;
     display: grid;
     grid-template-rows: 935px 159px auto;
     position: relative;
+    overflow: hidden;
 
     &::before {
       content: '';
@@ -1132,6 +1135,7 @@
       height: 1066px;
       background-color: $bg-blue;
       z-index: 1;
+      transition: 0.3s;
     }
 
     &__text {
@@ -1139,10 +1143,12 @@
       height: 935px;
       background-color: $bg-gray;
       overflow: hidden;
+      transition: 0.3s;
     }
 
     &__btn {
       height: 100%;
+      transition: 0.3s;
     }
 
     &__photo {
@@ -1151,6 +1157,7 @@
       background-color: $bg-gray;
       position: relative;
       overflow: hidden;
+      transition: 0.3s;
     }
 
     &__line-1 {
@@ -1222,6 +1229,7 @@
       height: 418px;
       display: flex;
       flex-direction: column;
+      transition: 0.3s;
 
       &__top {
         background-color: $button-color;
@@ -1244,6 +1252,11 @@
     width: 100%;
     position: relative;
   }
+}
+
+.section__right-none {
+  transition: 0.5s;
+  opacity: 1;
 }
 
 
@@ -1921,6 +1934,236 @@ video {
     bottom: 0;
   }
 }
+
+//_______________________________________________________________________________________________________search
+
+.search {
+  &.section {
+    grid-template-columns: 349px auto 1726px;
+  }
+
+  & .section__text__btn {
+    left: 349px;
+  }
+
+  & .section__left__text {
+    transition: 0.3s;
+    opacity: 0;
+  }
+
+  & .section__left__btn {
+    transition: 0.3s;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .section__left__photo {
+    transition: 0.3s;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  & .section__left::before {
+    transition: 0.3s;
+    opacity: 0;
+  }
+
+  & .section__right-none {
+    transition: 0.3s;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  & .search-panel {
+    opacity: 1;
+    z-index: 99;
+    transition: 0.3s;
+
+
+    &__laine-1 {
+      top: 0;
+      transition: 0.8s ease;
+    }
+
+    &__laine-2 {
+      bottom: 0;
+      transition: 0.8s ease;
+    }
+
+    & .input-box {
+      &::before {
+        opacity: 1;
+        transition: 0.1s;
+      }
+
+      & input {
+        width: 1306px;
+        opacity: 1;
+        transition: 0.8s ease;
+      }
+
+    }
+
+    & .keyboard {
+      opacity: 1;
+      transition: 0.8s ease;
+      pointer-events: auto;
+    }
+  }
+
+}
+
+.search-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  opacity: 0;
+  /*z-index: -9999;*/
+  transition: 0.3s;
+
+  &__laine-1 {
+    width: 80px;
+    height: 244px;
+    background-color: $bg-light-blue;
+    position: absolute;
+    top: -80px;
+    left: 0;
+    transition: 0.3s;
+  }
+
+  &__laine-2 {
+    width: 80px;
+    height: 1296px;
+    background-color: $bg-blue;
+    position: absolute;
+    bottom: -1296px;
+    left: 0;
+    transition: 0.3s;
+  }
+
+  & .input-box {
+    margin-top: 514px;
+    padding: 0 170px 0 250px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+
+    &::before {
+      content: '';
+      position: absolute;
+      height: 180px;
+      width: 40px;
+      left: 210px;
+      top: 0;
+      background-color: $bg-blue;
+      opacity: 0;
+      transition: 0.1s;
+    }
+
+    & .results {
+      width: 100%;
+      text-align: center;
+      font-weight: 400;
+      font-size: 46px;
+      line-height: 86px;
+      color: $bg-light-gray;
+      margin-top: 34px;
+    }
+
+    & input {
+      width: 0;
+      height: 180px;
+      background-color: $bg-light-gray;
+      opacity: 0;
+      text-align: center;
+      vertical-align: center;
+      font-weight: 400;
+      font-size: 68px;
+      text-transform: uppercase;
+      color: #000000;
+      position: relative;
+      border: 0;
+      pointer-events: none;
+
+      &:focus {
+        border: 0;
+        box-shadow: none;
+        outline: 0;
+      }
+    }
+
+  }
+
+  & .keyboard {
+    position: absolute;
+    bottom: 0;
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-columns: repeat(11, auto);
+    grid-column-end: 2;
+    grid-gap: 20px;
+    justify-items: center;
+    align-items: center;
+    padding: 0 23px 200px 103px;
+    width: 100%;
+    opacity: 0;
+    transition: 0.1s;
+    pointer-events: none;
+
+    & li {
+      background-color: #FFFFFF;
+      color: $text-color-black;
+      height: 130px;
+      @include flex-center;
+      font-weight: 400;
+      font-size: 67px;
+      line-height: 86px;
+      text-align: center;
+      width: 100%;
+      text-transform: uppercase;
+
+      &:active {
+        background-color: $bg-light-gray;
+      }
+    }
+
+    & .delete {
+      background-color: #000000;
+
+      &:active {
+        background-color: $bg-dark-gray;
+      }
+    }
+
+    & .spacing {
+      grid-column-start: 1;
+      grid-column-end: 9;
+    }
+
+    & .search-click {
+      grid-column-start: 9;
+      grid-column-end: 12;
+      background-color: #000000;
+
+      &:active {
+        background-color: $bg-dark-gray;
+      }
+    }
+  }
+}
+
+mark {
+  background: $bg-gray;
+  color: $text-color;
+}
+
+.search-btn {
+  @include flex-center
+}
+
 
 //____________________________________________________________________________________________visually-impaired
 
