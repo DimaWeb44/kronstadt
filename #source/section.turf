@@ -5,19 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="./lib/slider/slick.css"/>
     <link rel="stylesheet" type="text/css" href="./lib/slider/slick-theme.css"/>
-    <link rel="stylesheet" type="text/css" href="../lib/modal/jquery.modal.min.css"/>
+    <link rel="stylesheet" type="text/css" href="./lib/modal/jquery.modal.min.css"/>
     <link rel="stylesheet" type="text/css" href="./css/style.css">
     <title>Статья</title>
 </head>
-<body>
-<div class="wrapper">
+<body data-barba="wrapper">
+<div class="wrapper" data-barba="container" data-barba-namespace="section1">
     <!--@import "section.html"-->
 </div>
 <script type="text/javascript" src="./lib/jquery.min.js"></script>
-<script type="text/javascript" src="./lib/slider/slick.js"></script>
 <script type="text/javascript" src="./lib/modal/jquery.modal.min.js"></script>
-<script type="text/javascript" src="../lib/highlight/jquery.mark.min.js"></script>
-<script type="text/javascript" src="./js/main.js"></script>
+<script type="text/javascript" src="./lib/highlight/jquery.mark.min.js"></script>
+<script type="text/javascript" src="./lib/slider/slick.js"></script>
 <script type="text/javascript">
   $('.section__slider-1').length && $('.section__slider-1').slick({
     arrows: true,
@@ -110,5 +109,8 @@
     return false;
   });
 </script>
+<script type="text/javascript" src="./lib/anime.min.js"></script>
+<script type="text/javascript" src="./lib/barba.min.js"></script>
+<script type="text/javascript" src="./js/main.js"></script>
 </body>
 </html>

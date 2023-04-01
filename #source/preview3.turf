@@ -6,11 +6,13 @@
     <link rel="stylesheet" type="text/css" href="./css/style.css">
     <title>Название статьи 3</title>
 </head>
-<body>
-<div class="wrapper">
+<body data-barba="wrapper">
+<div class="wrapper" data-barba="container" data-barba-namespace="prev3">
     <!--@import "preview3.html"-->
 </div>
 <script type="text/javascript" src="./lib/jquery.min.js"></script>
+<script type="text/javascript" src="./lib/anime.min.js"></script>
+<script type="text/javascript" src="./lib/barba.min.js"></script>
 <script type="text/javascript" src="./js/main.js"></script>
 </body>
 </html>

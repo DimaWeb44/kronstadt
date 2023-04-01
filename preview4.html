@@ -6,8 +6,8 @@
     <link rel="stylesheet" type="text/css" href="./css/style.css">
     <title>Название статьи 4</title>
 </head>
-<body>
-<div class="wrapper">
+<body data-barba="wrapper">
+<div class="wrapper" data-barba="container" data-barba-namespace="prev4">
 <main class="preview4">
     <div class="preview4__left">
         <div class="preview4__left__column">
@@ -45,7 +45,7 @@
                       fill="white" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
         </a>
-        <a class="nav__button" href="./preview2.html">
+        <a class="nav__button" href="./preview3.html">
             <svg style="margin-right: 48px; transform: rotate(180deg)" width="42" height="86" viewBox="0 0 42 86"
                  fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -153,6 +153,8 @@
 </main>
 </div>
 <script type="text/javascript" src="./lib/jquery.min.js"></script>
+<script type="text/javascript" src="./lib/anime.min.js"></script>
+<script type="text/javascript" src="./lib/barba.min.js"></script>
 <script type="text/javascript" src="./js/main.js"></script>
 </body>
 </html>

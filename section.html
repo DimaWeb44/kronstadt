@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="./lib/slider/slick.css"/>
     <link rel="stylesheet" type="text/css" href="./lib/slider/slick-theme.css"/>
-    <link rel="stylesheet" type="text/css" href="../lib/modal/jquery.modal.min.css"/>
+    <link rel="stylesheet" type="text/css" href="./lib/modal/jquery.modal.min.css"/>
     <link rel="stylesheet" type="text/css" href="./css/style.css">
     <title>Статья</title>
 </head>
-<body>
-<div class="wrapper">
+<body data-barba="wrapper">
+<div class="wrapper" data-barba="container" data-barba-namespace="section1">
 <div class="section">
     <div class="section__left">
         <div class="section__left__text">
@@ -274,7 +274,7 @@
                 <li class="letter">8</li>
                 <li class="letter">9</li>
                 <li class="letter">0</li>
-                <li class="delete letter">
+                <li class="letter delete">
                     <svg width="64" height="47" viewBox="0 0 64 47" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M46.4124 14.8887L30.4375 31.8942" stroke="white" stroke-width="4"
                               stroke-linecap="round"/>
@@ -1196,10 +1196,9 @@
     </div>
 </div></div>
 <script type="text/javascript" src="./lib/jquery.min.js"></script>
-<script type="text/javascript" src="./lib/slider/slick.js"></script>
 <script type="text/javascript" src="./lib/modal/jquery.modal.min.js"></script>
-<script type="text/javascript" src="../lib/highlight/jquery.mark.min.js"></script>
-<script type="text/javascript" src="./js/main.js"></script>
+<script type="text/javascript" src="./lib/highlight/jquery.mark.min.js"></script>
+<script type="text/javascript" src="./lib/slider/slick.js"></script>
 <script type="text/javascript">
   $('.section__slider-1').length && $('.section__slider-1').slick({
     arrows: true,
@@ -1292,5 +1291,8 @@
     return false;
   });
 </script>
+<script type="text/javascript" src="./lib/anime.min.js"></script>
+<script type="text/javascript" src="./lib/barba.min.js"></script>
+<script type="text/javascript" src="./js/main.js"></script>
 </body>
 </html>

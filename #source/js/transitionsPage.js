@@ -16,28 +16,28 @@ $('.page').length && $('.page').click(function (event) {
 });
 
 
-$(document).ready(function () {
-  $('.panel-next').length && $('.panel-next').click(function () {
-    $('.page').css("display", "none");
-    $('.article-page-1').fadeOut(700,);
-    $('.article-page-2').fadeIn(1400);
-  });
+barba.init({
+  transitions: [{
+    name: 'opacity-transition',
+    async leave(data) {
+      await anime({
+        targets: data.current.container,
+        opacity: [1, 0],
+        easing: 'easeInOutQuad',
+      });
+    },
+    async enter(data) {
+      await anime({
+        targets: data.next.container,
+        opacity: [0, 1],
+        easing: 'easeInOutQuad',
+      });
+    },
+  }]
 });
 
 /*
-$(document).ready(function() {
-  $("body").css("display", "none");
-
-  $("body").fadeIn(2000);
-
-  $("a.transition").click(function(event){
-    event.preventDefault();
-    linkLocation = this.href;
-    $("body").fadeOut(1000, redirectPage);
-  });
-
-  function redirectPage() {
-    window.location = linkLocation;
-  }
+barba.hooks.beforeEnter((data) => {
+  console.log('kkk')
 });
 */
