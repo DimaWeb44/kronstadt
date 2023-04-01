@@ -1,73 +1,100 @@
-<main class="preview4">
-    <div class="preview4__left">
-        <div class="preview4__left__column">
-            <div class="preview4__left__column__photo">
-                <img src="./img/preview4/photo/image2.png" alt="photo">
-            </div>
-        </div>
-        <div class="preview4__left__photo">
-            <img src="./img/preview4/photo/image1.png" alt="photo">
-        </div>
-        <span>04</span>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <title>Поиск</title>
+</head>
+<body data-barba="wrapper">
+<div class="wrapper" data-barba="container" data-barba-namespace="search-article">
+<div class="search-article">
+    <div class="search-article__left">
+
     </div>
-    <div class="preview4__right">
-        <div class="preview4__right__text">
-            <h1>Петровские реформы системы оказания медпомощи на флоте</h1>
-            <p>При Петре I русский флот стал одним из самых могущественных в мире. Реформы, проведённые императором,
-                касались и военно-морской медицины. Одна из проблем, с которой столкнулся царь-реформатор, —
-                катастрофическая нехватка медицинского персонала.</p>
-            <p>Для воспитания собственных специалистов были учреждены госпитальные школы, в которых, однако, поначалу не
-                преподавали специфику морской медицины.</p>
-            <p>Вскоре после организации первых госпитальных школ пришло понимание, что морская медицина имеет
-                значительные отличия от сухопутной.</p>
+    <div class="search-article__right">
+        <div class="search-panel">
+            <div class="input-box">
+                <input id="term" type="text" autofocus>
+                <p class="results"></p>
+            </div>
+            <ul id="keyboard" class="keyboard">
+                <li class="letter">1</li>
+                <li class="letter">2</li>
+                <li class="letter">3</li>
+                <li class="letter">4</li>
+                <li class="letter">5</li>
+                <li class="letter">6</li>
+                <li class="letter">7</li>
+                <li class="letter">8</li>
+                <li class="letter">9</li>
+                <li class="letter">0</li>
+                <li class="letter delete">
+                    <svg width="64" height="47" viewBox="0 0 64 47" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M46.4124 14.8887L30.4375 31.8942" stroke="white" stroke-width="4"
+                              stroke-linecap="round"/>
+                        <path d="M30.4392 14.8887L46.4141 31.8942" stroke="white" stroke-width="4"
+                              stroke-linecap="round"/>
+                        <path d="M15.9957 5.19573C17.8878 3.15792 20.5431 2 23.3239 2H52C57.5228 2 62 6.47715 62 12V35C62 40.5228 57.5228 45 52 45H23.3239C20.5431 45 17.8878 43.8421 15.9957 41.8043L5.31783 30.3043C1.75538 26.4675 1.75538 20.5325 5.31783 16.6957L15.9957 5.19573Z"
+                              stroke="white" stroke-width="4" stroke-linejoin="round"/>
+                    </svg>
+                </li>
+                <li class="letter">Й</li>
+                <li class="letter">Ц</li>
+                <li class="letter">У</li>
+                <li class="letter">К</li>
+                <li class="letter">Е</li>
+                <li class="letter">Н</li>
+                <li class="letter">Г</li>
+                <li class="letter">Ш</li>
+                <li class="letter">Щ</li>
+                <li class="letter">З</li>
+                <li class="letter">Х</li>
+                <li class="letter">Ф</li>
+                <li class="letter">Ы</li>
+                <li class="letter">В</li>
+                <li class="letter">А</li>
+                <li class="letter">П</li>
+                <li class="letter">Р</li>
+                <li class="letter">О</li>
+                <li class="letter">Л</li>
+                <li class="letter">Д</li>
+                <li class="letter">Ж</li>
+                <li class="letter">Э</li>
+                <li class="letter">,</li>
+                <li class="letter">Я</li>
+                <li class="letter">Ч</li>
+                <li class="letter">С</li>
+                <li class="letter">М</li>
+                <li class="letter">И</li>
+                <li class="letter">Т</li>
+                <li class="letter">Ь</li>
+                <li class="letter">Б</li>
+                <li class="letter">Ю</li>
+                <li class="letter">.</li>
+                <li class="letter spacing">Пробел</li>
+                <li class="search-click">
+                    <svg width="66" height="65" viewBox="0 0 66 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M28.102 4.86484C15.4367 4.86484 5.16954 15.0791 5.16954 27.6791C5.16954 40.2791 15.4367 50.4933 28.102 50.4933C40.7672 50.4933 51.0345 40.2791 51.0345 27.6791C51.0345 15.0791 40.7672 4.86484 28.102 4.86484ZM1 27.6791C1 12.7882 13.134 0.716797 28.102 0.716797C43.07 0.716797 55.204 12.7882 55.204 27.6791C55.204 34.378 52.7483 40.5063 48.6837 45.2216L64.3894 60.1762C65.2035 60.9862 65.2035 62.2994 64.3894 63.1093C63.5752 63.9193 62.2552 63.9193 61.4411 63.1093L45.7354 48.1547C40.9956 52.1984 34.8356 54.6414 28.102 54.6414C13.134 54.6414 1 42.57 1 27.6791Z"
+                              fill="white" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </li>
+            </ul>
+            <div class="search-panel__laine-1"></div>
+            <div class="search-panel__laine-2"></div>
         </div>
     </div>
     <div class="nav">
-        <a class="nav__button" href="./section.html">
-            Читать далее
-            <svg style="margin-left: 48px" width="42" height="86" viewBox="0 0 42 86" fill="none"
-                 xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd"
-                      d="M38.6209 41.8248C39.0571 42.248 39.0676 42.9447 38.6444 43.3808L5.19506 77.8589C4.77189 78.295 4.07524 78.3056 3.63905 77.8824C3.20286 77.4592 3.19231 76.7626 3.61549 76.3264L37.0649 41.8484C37.488 41.4122 38.1847 41.4017 38.6209 41.8248Z"
-                      fill="white" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path fill-rule="evenodd" clip-rule="evenodd"
-                      d="M38.6209 43.3431C39.0571 42.92 39.0676 42.2233 38.6444 41.7871L5.19506 7.3091C4.77189 6.87292 4.07524 6.86237 3.63905 7.28554C3.20286 7.70872 3.19231 8.40537 3.61549 8.84156L37.0649 43.3196C37.488 43.7558 38.1847 43.7663 38.6209 43.3431Z"
-                      fill="white" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-        </a>
-        <a class="nav__button" href="./preview3.html">
-            <svg style="margin-right: 48px; transform: rotate(180deg)" width="42" height="86" viewBox="0 0 42 86"
-                 fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd"
-                      d="M38.6209 41.8248C39.0571 42.248 39.0676 42.9447 38.6444 43.3808L5.19506 77.8589C4.77189 78.295 4.07524 78.3056 3.63905 77.8824C3.20286 77.4592 3.19231 76.7626 3.61549 76.3264L37.0649 41.8484C37.488 41.4122 38.1847 41.4017 38.6209 41.8248Z"
-                      fill="white" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path fill-rule="evenodd" clip-rule="evenodd"
-                      d="M38.6209 43.3431C39.0571 42.92 39.0676 42.2233 38.6444 41.7871L5.19506 7.3091C4.77189 6.87292 4.07524 6.86237 3.63905 7.28554C3.20286 7.70872 3.19231 8.40537 3.61549 8.84156L37.0649 43.3196C37.488 43.7558 38.1847 43.7663 38.6209 43.3431Z"
-                      fill="white" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            Предыдущая статья
-        </a>
-        <a class="nav__button" href="./preview4.html">
-            Следующая статья
-            <svg style="margin-left: 48px" width="42" height="86" viewBox="0 0 42 86" fill="none"
-                 xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd"
-                      d="M38.6209 41.8248C39.0571 42.248 39.0676 42.9447 38.6444 43.3808L5.19506 77.8589C4.77189 78.295 4.07524 78.3056 3.63905 77.8824C3.20286 77.4592 3.19231 76.7626 3.61549 76.3264L37.0649 41.8484C37.488 41.4122 38.1847 41.4017 38.6209 41.8248Z"
-                      fill="white" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path fill-rule="evenodd" clip-rule="evenodd"
-                      d="M38.6209 43.3431C39.0571 42.92 39.0676 42.2233 38.6444 41.7871L5.19506 7.3091C4.77189 6.87292 4.07524 6.86237 3.63905 7.28554C3.20286 7.70872 3.19231 8.40537 3.61549 8.84156L37.0649 43.3196C37.488 43.7558 38.1847 43.7663 38.6209 43.3431Z"
-                      fill="white" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-        </a>
         <div class="nav__button menu">
-            <a href="./search-article.html">
-                <svg class="search-btn" width="78" height="77" viewBox="0 0 78 77" fill="none"
+            <div class="search-btn">
+                <svg width="78" height="77" viewBox="0 0 78 77" fill="none"
                      xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd"
                           d="M32.7973 5.04574C17.4706 5.04574 5.04574 17.4706 5.04574 32.7973C5.04574 48.1241 17.4706 60.5489 32.7973 60.5489C48.1241 60.5489 60.5489 48.1241 60.5489 32.7973C60.5489 17.4706 48.1241 5.04574 32.7973 5.04574ZM0 32.7973C0 14.6839 14.6839 0 32.7973 0C50.9108 0 65.5947 14.6839 65.5947 32.7973C65.5947 40.946 62.623 48.4005 57.7042 54.1363L76.7103 72.3273C77.6956 73.3126 77.6956 74.91 76.7103 75.8952C75.7251 76.8805 74.1277 76.8805 73.1424 75.8952L54.1363 57.7042C48.4005 62.623 40.946 65.5947 32.7973 65.5947C14.6839 65.5947 0 50.9108 0 32.7973Z"
                           fill="white"/>
                 </svg>
-            </a>
+            </div>
             <div class="language-btn">
                 <svg width="81" height="112" viewBox="0 0 81 112" fill="none"
                      xmlns="http://www.w3.org/2000/svg">
@@ -142,4 +169,10 @@
             </svg>
         </div>
     </div>
-</main>
+</div></div>
+<script type="text/javascript" src="./lib/jquery.min.js"></script>
+<script type="text/javascript" src="./lib/anime.min.js"></script>
+<script type="text/javascript" src="./lib/barba.min.js"></script>
+<script type="text/javascript" src="./js/main.js"></script>
+</body>
+</html>

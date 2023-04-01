@@ -1,14 +1,31 @@
 // ____________________________________________________________________________________________ scroll.js
-$('.section__text__btn__bottom').length && $('.section__text__btn__bottom').click(function() {
-  event.preventDefault();
-  $('.section__text').animate({
-    scrollTop: '+=250px'
-  }, "slow");
-});
+function scroll(content, top, bottom, scrollPx) {
+  bottom && bottom.click(function () {
+    event.preventDefault();
+    content.animate({
+      scrollTop: `+=${scrollPx}px`
+    }, "slow");
+  });
 
-$('.section__text__btn__top').length &&  $('.section__text__btn__top').click(function() {
-  event.preventDefault();
-  $('.section__text').animate({
-    scrollTop: '-=250px'
-  }, "slow");
-});
+  top && top.click(function () {
+    event.preventDefault();
+    content.animate({
+      scrollTop: `-=${scrollPx}px`
+    }, "slow");
+  });
+
+}
+
+
+let sectionText = $('.section__text')
+let sectionTextTop = $('.section__text__btn__top')
+let sectionTextBottom = $('.section__text__btn__bottom')
+scroll(sectionText, sectionTextTop, sectionTextBottom, 260)
+
+let leftMenu = $('.left-menu ul')
+let leftPanelTop = $('.left-panel-top')
+let leftPanelBottom = $('.left-panel-bottom')
+scroll(leftMenu, leftPanelTop, leftPanelBottom, 333)
+
+
+

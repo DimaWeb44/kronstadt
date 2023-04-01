@@ -6,7 +6,6 @@ function declOfNum(number, words) {
   return words[(number % 100 > 4 && number % 100 < 20) ? 2 : [2, 0, 1, 1, 1, 2][(number % 10 < 5) ? Math.abs(number) % 10 : 5]];
 }
 
-
 searchBtn && searchBtn.on('click', () => {
   $('.section').toggleClass('search')
   if ($('.section').attr('class').includes('search')) {
@@ -25,17 +24,23 @@ searchBtn && searchBtn.on('click', () => {
 });
 
 
-contentText && $(function () {
-  var mark = function () {
-    var keyword = $("#term").val();
+let $write = $('#term').length && $('#term')
+
+$write && $('#keyboard .letter').click(function () {
+  let mark = function () {
+    let keyword = $write.val();
     $("p.results").hide().empty();
-    var options = {};
+    let options = {};
     contentText.unmark({
       done: function () {
         contentText.mark(keyword, {
           done: function (count) {
             if (count == 0) {
-              $("p.results").fadeIn().append("Ничего не найдено");
+              if (keyword.trim()) {
+                $("p.results").fadeIn().append("Ничего не найдено");
+              } else {
+                $("p.results").hide().empty();
+              }
             } else {
               $("p.results").fadeIn().append('Hайдено: ' + count + ` ${declOfNum(count, ['совпадение', 'совпадения', 'совпадений'])}.`);
             }
@@ -44,30 +49,19 @@ contentText && $(function () {
       }
     });
   };
-  $(".search-click").on("click", mark);
-});
-
-
-var $write = $('#term').length && $('#term')
-
-$write && $('#keyboard .letter').click(function () {
 
   var $this = $(this),
     character = $this.html();
 
-
   if ($this.hasClass('delete')) {
-    var html = $write.val();
-    $("p.results").hide().empty();
-    contentText.unmark();
+    let html = $write.val();
     $write.val(html.substr(0, html.length - 1));
+    mark()
     return false;
   }
-
-  $("p.results").hide().empty();
-  contentText.unmark();
 
   if ($this.hasClass('spacing')) character = ' ';
 
   $write.val($write.val() + character);
+  mark()
 });

@@ -15,7 +15,7 @@ languageBtn.length && languageBtn.forEach(el => {
   })
 })
 //_________________________________________________________________________________________________transitionsPage
-
+/*
 $('.page').length && $('.page').click(function (event) {
   var x = event.pageX;
   var y = event.pageY;
@@ -30,26 +30,69 @@ $('.page').length && $('.page').click(function (event) {
     }
   });
 });
+*/
 
+
+
+
+let animeFunc = (targets, step, direction) => {
+  const duration = 1000;
+  const from = step === 'leave' ? 0 : 100;
+  const to = step === 'leave' ? 100 : 0;
+
+  targets.style.transform = direction === 'next'
+    ? `translateX(${from}%)`
+    : `translateX(-${from}%)`;
+
+  const translateX = direction === 'next' ? `-${to}%` : `${to}%`;
+  const staggerX = window.innerWidth * 0.1;
+  const anim = anime.timeline({
+    easing: 'easeInOutQuart',
+    duration,
+  });
+
+  anim.add({
+    targets,
+    translateX,
+  });
+
+
+  if (step === 'enter') {
+    anim.add({
+      targets: targets.querySelectorAll('main > *'),
+      translateX: direction === 'next' ? [staggerX, 0] : [-staggerX, 0],
+      duration: duration * 0.6,
+      easing: 'easeOutQuart',
+      delay: anime.stagger(100),
+    }, '-=500');
+  }
+
+  return anim.finished;
+}
+
+barba.hooks.before(() => {
+  barba.wrapper.classList.add('is-animating');
+});
+barba.hooks.after(() => {
+  barba.wrapper.classList.remove('is-animating');
+});
 
 barba.init({
-  transitions: [{
-    name: 'opacity-transition',
-    async leave(data) {
-      await anime({
-        targets: data.current.container,
-        opacity: [1, 0],
-        easing: 'easeInOutQuad',
-      });
+  debug: true,
+  transitions: [
+    {
+      sync: true,
+      custom: ({ trigger }) => trigger.dataset && trigger.dataset.direction === 'next',
+      leave: ({ current }) => animeFunc(current.container, 'leave', 'next'),
+      enter: ({ next }) => animeFunc(next.container, 'enter', 'next'),
     },
-    async enter(data) {
-      await anime({
-        targets: data.next.container,
-        opacity: [0, 1],
-        easing: 'easeInOutQuad',
-      });
+    {
+      sync: true,
+      custom: ({ trigger }) => trigger.dataset && trigger.dataset.direction === 'prev',
+      leave: ({ current }) => animeFunc(current.container, 'leave', 'prev'),
+      enter: ({ next }) => animeFunc(next.container, 'enter', 'prev'),
     },
-  }]
+  ],
 });
 
 /*
@@ -59,19 +102,36 @@ barba.hooks.beforeEnter((data) => {
 */
 
 // ____________________________________________________________________________________________ scroll.js
-$('.section__text__btn__bottom').length && $('.section__text__btn__bottom').click(function() {
-  event.preventDefault();
-  $('.section__text').animate({
-    scrollTop: '+=250px'
-  }, "slow");
-});
+function scroll(content, top, bottom, scrollPx) {
+  bottom && bottom.click(function () {
+    event.preventDefault();
+    content.animate({
+      scrollTop: `+=${scrollPx}px`
+    }, "slow");
+  });
 
-$('.section__text__btn__top').length &&  $('.section__text__btn__top').click(function() {
-  event.preventDefault();
-  $('.section__text').animate({
-    scrollTop: '-=250px'
-  }, "slow");
-});
+  top && top.click(function () {
+    event.preventDefault();
+    content.animate({
+      scrollTop: `-=${scrollPx}px`
+    }, "slow");
+  });
+
+}
+
+
+let sectionText = $('.section__text')
+let sectionTextTop = $('.section__text__btn__top')
+let sectionTextBottom = $('.section__text__btn__bottom')
+scroll(sectionText, sectionTextTop, sectionTextBottom, 260)
+
+let leftMenu = $('.left-menu ul')
+let leftPanelTop = $('.left-panel-top')
+let leftPanelBottom = $('.left-panel-bottom')
+scroll(leftMenu, leftPanelTop, leftPanelBottom, 333)
+
+
+
 
 //____________________________________________________________________________________________ video.js
 let video = document.querySelectorAll(".video-box");
@@ -150,7 +210,6 @@ function declOfNum(number, words) {
   return words[(number % 100 > 4 && number % 100 < 20) ? 2 : [2, 0, 1, 1, 1, 2][(number % 10 < 5) ? Math.abs(number) % 10 : 5]];
 }
 
-
 searchBtn && searchBtn.on('click', () => {
   $('.section').toggleClass('search')
   if ($('.section').attr('class').includes('search')) {
@@ -169,17 +228,23 @@ searchBtn && searchBtn.on('click', () => {
 });
 
 
-contentText && $(function () {
-  var mark = function () {
-    var keyword = $("#term").val();
+let $write = $('#term').length && $('#term')
+
+$write && $('#keyboard .letter').click(function () {
+  let mark = function () {
+    let keyword = $write.val();
     $("p.results").hide().empty();
-    var options = {};
+    let options = {};
     contentText.unmark({
       done: function () {
         contentText.mark(keyword, {
           done: function (count) {
             if (count == 0) {
-              $("p.results").fadeIn().append("Ничего не найдено");
+              if (keyword.trim()) {
+                $("p.results").fadeIn().append("Ничего не найдено");
+              } else {
+                $("p.results").hide().empty();
+              }
             } else {
               $("p.results").fadeIn().append('Hайдено: ' + count + ` ${declOfNum(count, ['совпадение', 'совпадения', 'совпадений'])}.`);
             }
@@ -188,30 +253,19 @@ contentText && $(function () {
       }
     });
   };
-  $(".search-click").on("click", mark);
-});
-
-
-var $write = $('#term').length && $('#term')
-
-$write && $('#keyboard .letter').click(function () {
 
   var $this = $(this),
     character = $this.html();
 
-
   if ($this.hasClass('delete')) {
-    var html = $write.val();
-    $("p.results").hide().empty();
-    contentText.unmark();
+    let html = $write.val();
     $write.val(html.substr(0, html.length - 1));
+    mark()
     return false;
   }
-
-  $("p.results").hide().empty();
-  contentText.unmark();
 
   if ($this.hasClass('spacing')) character = ' ';
 
   $write.val($write.val() + character);
+  mark()
 });
