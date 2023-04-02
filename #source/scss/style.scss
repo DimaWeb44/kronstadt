@@ -772,7 +772,7 @@
   transform: translate(-50%, 0);
   z-index: 9;
   overflow: hidden;
-  transition: 0.3s;
+  transition: 0.3s ease;
   display: grid;
   grid-template-rows: 160px 120px 160px;
   justify-content: center;
@@ -782,7 +782,7 @@
 .language-panel-active {
   height: 450px;
   top: -445px;
-  transition: 0.3s;
+  transition: 0.3s ease;
 }
 
 .home-btn {
@@ -1167,7 +1167,7 @@
   overflow: hidden;
   display: grid;
   grid-template-columns: 1017px auto 1060px;
-  transition: 0.3s;
+  transition: 0.3s ease;
 
   &__left {
     width: 100%;
@@ -1185,7 +1185,7 @@
       height: 1066px;
       background-color: $bg-blue;
       z-index: 1;
-      transition: 0.3s;
+      transition: 0.3s ease;
     }
 
     &__text {
@@ -1193,12 +1193,12 @@
       height: 935px;
       background-color: $bg-gray;
       overflow: hidden;
-      transition: 0.3s;
+      transition: 0.3s ease;
     }
 
     &__btn {
       height: 100%;
-      transition: 0.3s;
+      transition: 0.3s ease;
     }
 
     &__photo {
@@ -1207,7 +1207,7 @@
       background-color: $bg-gray;
       position: relative;
       overflow: hidden;
-      transition: 0.3s;
+      transition: 0.3s ease;
     }
 
     &__line-1 {
@@ -1236,6 +1236,7 @@
     padding: 174px 470px 274px 261px;
     color: $text-color-black;
     overflow-y: scroll;
+
 
     &::-webkit-scrollbar {
       width: 6px;
@@ -1279,7 +1280,7 @@
       height: 418px;
       display: flex;
       flex-direction: column;
-      transition: 0.3s;
+      transition: 0.3s ease;
 
       &__top {
         background-color: $button-color;
@@ -1305,7 +1306,7 @@
 }
 
 .section__right-none {
-  transition: 0.5s;
+  transition: 0.5s ease;
   opacity: 1;
 }
 
@@ -1748,7 +1749,7 @@ video {
     display: flex;
     align-items: end;
     margin: 0 auto;
-    transition: 0.4s;
+    transition: 0.4s ease;
 
     & img {
       object-fit: contain;
@@ -1771,7 +1772,7 @@ video {
     max-width: 2200px;
     margin: 0 auto;
     opacity: 0;
-    transition: 0.4s;
+    transition: 0.4s ease;
 
     & p {
       font-weight: 700;
@@ -1832,13 +1833,13 @@ video {
 
 .gallery__slider-big .slick-slide.slick-current .slide-big__text {
   opacity: 1;
-  transition: 0.4s;
+  transition: 0.4s ease;
 }
 
 .gallery__slider-big .slick-slide.slick-current .slide-big__photo {
   width: 1915px;
   height: 1350px;
-  transition: 0.4s;
+  transition: 0.4s ease;
 }
 
 .slide-video-small {
@@ -1950,29 +1951,29 @@ video {
   }
 
   & .section__left__text {
-    transition: 0.3s;
+    transition: 0.3s ease;
     opacity: 0;
   }
 
   & .section__left__btn {
-    transition: 0.3s;
+    transition: 0.3s ease;
     opacity: 0;
     pointer-events: none;
   }
 
   .section__left__photo {
-    transition: 0.3s;
+    transition: 0.3s ease;
     opacity: 0;
     pointer-events: none;
   }
 
   & .section__left::before {
-    transition: 0.3s;
+    transition: 0.3s ease;
     opacity: 0;
   }
 
   & .section__right-none {
-    transition: 0.3s;
+    transition: 0.3s ease;
     opacity: 0;
     pointer-events: none;
   }
@@ -1980,7 +1981,7 @@ video {
   & .search-panel {
     opacity: 1;
     z-index: 99;
-    transition: 0.3s;
+    transition: 0.3s ease;
     pointer-events: auto;
 
 
@@ -1997,7 +1998,7 @@ video {
     & .input-box {
       &::before {
         opacity: 1;
-        transition: 0.1s;
+        transition: 0.1s ease;
       }
 
       & input {
@@ -2025,7 +2026,7 @@ video {
   width: 100%;
   opacity: 0;
   z-index: 0;
-  transition: 0.3s;
+  transition: 0.3s ease;
   pointer-events: none;
 
   &__laine-1 {
@@ -2033,9 +2034,9 @@ video {
     height: 244px;
     background-color: $bg-light-blue;
     position: absolute;
-    top: -80px;
+    top: -244px;
     left: 0;
-    transition: 0.3s;
+    transition: 0.3s ease;
   }
 
   &__laine-2 {
@@ -2045,7 +2046,7 @@ video {
     position: absolute;
     bottom: -1296px;
     left: 0;
-    transition: 0.3s;
+    transition: 0.3s ease;
   }
 
   & .input-box {
@@ -2065,7 +2066,7 @@ video {
       top: 0;
       background-color: $bg-blue;
       opacity: 0;
-      transition: 0.1s;
+      transition: 0.1s ease;
     }
 
     & .results {
@@ -2093,6 +2094,7 @@ video {
       border: 0;
       pointer-events: none;
       padding-right: 90px;
+      transition: 0.1s ease;
 
       &:focus {
         border: 0;
@@ -2116,7 +2118,7 @@ video {
     padding: 0 23px 200px 103px;
     width: 100%;
     opacity: 0;
-    transition: 0.1s;
+    transition: 0.2s ease;
     pointer-events: none;
 
     & li {
@@ -2182,6 +2184,7 @@ mark {
   &__right {
     position: relative;
     background-color: $bg-gray;
+
     & .search-panel {
       opacity: 1;
       z-index: 1;
@@ -2216,6 +2219,138 @@ mark {
       }
     }
 
+  }
+
+  &__left {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+
+    &__list {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      overflow-y: scroll;
+      -ms-overflow-style: none;
+      overflow: -moz-scrollbars-none;
+      padding-bottom: 180px;
+
+
+      &::-webkit-scrollbar {
+        width: 0;
+        background: transparent;
+      }
+
+      &__item {
+        overflow: hidden;
+        background-color: $bg-gray;
+        min-height: 432px;
+        width: 100%;
+        @include flex-center;
+        position: relative;
+
+
+        & p {
+          position: absolute;
+          left: 400px;
+          right: 50px;
+          margin: auto 0;
+          font-weight: 500;
+          font-size: 100px;
+          line-height: 104px;
+          letter-spacing: 0.04em;
+          color: $text-color;
+          z-index: 1;
+        }
+
+        & span {
+          position: absolute;
+          left: 147px;
+          margin: auto 0;
+          font-weight: 100;
+          font-size: 130px;
+          line-height: 152px;
+          letter-spacing: -0.02em;
+          color: $text-color;
+          z-index: 1;
+        }
+
+        & img {
+          object-fit: cover;
+          width: 100%;
+          height: 100%;
+          position: relative;
+
+          &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+          }
+        }
+      }
+
+    }
+  }
+
+  & .left-panel {
+    background-color: transparent;
+    width: 2114px;
+    z-index: 3;
+
+    & div {
+      background-color: #000000;
+
+      &:first-child {
+        margin-right: 10px;
+      }
+    }
+
+  }
+}
+
+.close-search-article {
+  @include flex-center
+}
+
+.no-found {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 1000px;
+  @include flex-center;
+  flex-direction: column;
+
+  & svg {
+    margin-bottom: 80px;
+  }
+
+  & h1 {
+    font-weight: 500;
+    font-size: 140px;
+    line-height: 144px;
+    text-align: center;
+    letter-spacing: 0.04em;
+    color: $text-color-black;
+    margin-bottom: 100px;
+  }
+
+  & p {
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 54px;
+    text-align: center;
+    letter-spacing: 0.04em;
+    color: $bg-gray;
   }
 }
 

@@ -1,4 +1,7 @@
+
+
 //_________________________________________________________________________________________________transitionsPage
+
 /*
 $('.page').length && $('.page').click(function (event) {
   var x = event.pageX;

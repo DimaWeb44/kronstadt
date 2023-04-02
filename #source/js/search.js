@@ -1,5 +1,8 @@
+
+
 // _________________________________________________________________________________________ search.js
-let searchBtn = $('.search-btn')
+
+let searchBtn = $('#toggle-search')
 let contentText = $(".content-text")
 
 function declOfNum(number, words) {
@@ -23,34 +26,33 @@ searchBtn && searchBtn.on('click', () => {
   $("p.results").hide().empty();
 });
 
-
 let $write = $('#term').length && $('#term')
 
-$write && $('#keyboard .letter').click(function () {
-  let mark = function () {
-    let keyword = $write.val();
-    $("p.results").hide().empty();
-    let options = {};
-    contentText.unmark({
-      done: function () {
-        contentText.mark(keyword, {
-          done: function (count) {
-            if (count == 0) {
-              if (keyword.trim()) {
-                $("p.results").fadeIn().append("Ничего не найдено");
-              } else {
-                $("p.results").hide().empty();
-              }
+let mark = function () {
+  let keyword = $write.val();
+  $("p.results").hide().empty();
+  let options = {};
+  contentText.unmark({
+    done: function () {
+      contentText.mark(keyword, {
+        done: function (count) {
+          if (count == 0) {
+            if (keyword.trim()) {
+              $("p.results").fadeIn().append("Ничего не найдено");
             } else {
-              $("p.results").fadeIn().append('Hайдено: ' + count + ` ${declOfNum(count, ['совпадение', 'совпадения', 'совпадений'])}.`);
+              $("p.results").hide().empty();
             }
+          } else {
+            $("p.results").fadeIn().append('Hайдено: ' + count + ` ${declOfNum(count, ['совпадение', 'совпадения', 'совпадений'])}.`);
           }
-        });
-      }
-    });
-  };
+        }
+      });
+    }
+  });
+};
 
-  var $this = $(this),
+contentText && $('#keyboard .letter').click(function () {
+  let $this = $(this),
     character = $this.html();
 
   if ($this.hasClass('delete')) {

@@ -1,5 +1,6 @@
 
 // ____________________________________________________________________________________________ nav.js
+
 eyeBtn = document.querySelector('.eye-btn')
 eyeBtn && eyeBtn.addEventListener('click', () => {
   document.body.classList.toggle('visually-impaired')
@@ -14,7 +15,16 @@ languageBtn.length && languageBtn.forEach(el => {
     })
   })
 })
+
+closeSearchArticle = document.querySelector('.close-search-article')
+closeSearchArticle && closeSearchArticle.addEventListener('click', () => {
+  history.back();
+  return false;
+})
+
+
 //_________________________________________________________________________________________________transitionsPage
+
 /*
 $('.page').length && $('.page').click(function (event) {
   var x = event.pageX;
@@ -101,7 +111,10 @@ barba.hooks.beforeEnter((data) => {
 });
 */
 
+
+
 // ____________________________________________________________________________________________ scroll.js
+
 function scroll(content, top, bottom, scrollPx) {
   bottom && bottom.click(function () {
     event.preventDefault();
@@ -119,23 +132,24 @@ function scroll(content, top, bottom, scrollPx) {
 
 }
 
-
 let sectionText = $('.section__text')
 let sectionTextTop = $('.section__text__btn__top')
 let sectionTextBottom = $('.section__text__btn__bottom')
-scroll(sectionText, sectionTextTop, sectionTextBottom, 260)
+sectionText && scroll(sectionText, sectionTextTop, sectionTextBottom, 260)
 
 let leftMenu = $('.left-menu ul')
 let leftPanelTop = $('.left-panel-top')
 let leftPanelBottom = $('.left-panel-bottom')
-scroll(leftMenu, leftPanelTop, leftPanelBottom, 333)
+leftMenu && scroll(leftMenu, leftPanelTop, leftPanelBottom, 333)
 
+let leftMenuArticle = $('.search-article__left__list')
+leftMenuArticle && scroll(leftMenuArticle, leftPanelTop, leftPanelBottom, 432)
 
 
 
 //____________________________________________________________________________________________ video.js
+
 let video = document.querySelectorAll(".video-box");
-// Buttons
 
 video && video.forEach((el) => {
   let video = el.querySelector('video')
@@ -179,14 +193,16 @@ video && video.forEach((el) => {
   });
 })
 
+
+
 // _________________________________________________________________________________________ slider.js
+
 function setNumberSlide(e) {
   let indexSlide = $('.section__slider-2').length && $('.section__slider-2').slick('slickCurrentSlide');
   $('.gallery__slider-big').length && $('.gallery__slider-big').slick('slickGoTo', indexSlide);
 }
 
 $('.gallery-slider-2').length && $('.gallery-slider-2').on('click', () => setNumberSlide());
-
 
 function setNumberSlideGalleri(e) {
   let indexSlide = $('.gallery__slider-big').length && $('.gallery__slider-big').slick('slickCurrentSlide');
@@ -195,15 +211,17 @@ function setNumberSlideGalleri(e) {
 
 $('#open-full-photo').length && $('#open-full-photo').on('click', () => setNumberSlideGalleri());
 
-
 function setNumberSlideFullPhoto(e) {
   let indexSlide = $('.gallery__slider-full-photo').length && $('.gallery__slider-full-photo').slick('slickCurrentSlide');
   $('.gallery__slider-big').length && $('.gallery__slider-big').slick('slickGoTo', indexSlide);
 }
 
 $('#close-full-photo').length && $('#close-full-photo').on('click', () => setNumberSlideFullPhoto());
+
+
 // _________________________________________________________________________________________ search.js
-let searchBtn = $('.search-btn')
+
+let searchBtn = $('#toggle-search')
 let contentText = $(".content-text")
 
 function declOfNum(number, words) {
@@ -227,34 +245,33 @@ searchBtn && searchBtn.on('click', () => {
   $("p.results").hide().empty();
 });
 
-
 let $write = $('#term').length && $('#term')
 
-$write && $('#keyboard .letter').click(function () {
-  let mark = function () {
-    let keyword = $write.val();
-    $("p.results").hide().empty();
-    let options = {};
-    contentText.unmark({
-      done: function () {
-        contentText.mark(keyword, {
-          done: function (count) {
-            if (count == 0) {
-              if (keyword.trim()) {
-                $("p.results").fadeIn().append("Ничего не найдено");
-              } else {
-                $("p.results").hide().empty();
-              }
+let mark = function () {
+  let keyword = $write.val();
+  $("p.results").hide().empty();
+  let options = {};
+  contentText.unmark({
+    done: function () {
+      contentText.mark(keyword, {
+        done: function (count) {
+          if (count == 0) {
+            if (keyword.trim()) {
+              $("p.results").fadeIn().append("Ничего не найдено");
             } else {
-              $("p.results").fadeIn().append('Hайдено: ' + count + ` ${declOfNum(count, ['совпадение', 'совпадения', 'совпадений'])}.`);
+              $("p.results").hide().empty();
             }
+          } else {
+            $("p.results").fadeIn().append('Hайдено: ' + count + ` ${declOfNum(count, ['совпадение', 'совпадения', 'совпадений'])}.`);
           }
-        });
-      }
-    });
-  };
+        }
+      });
+    }
+  });
+};
 
-  var $this = $(this),
+contentText && $('#keyboard .letter').click(function () {
+  let $this = $(this),
     character = $this.html();
 
   if ($this.hasClass('delete')) {
@@ -268,4 +285,48 @@ $write && $('#keyboard .letter').click(function () {
 
   $write.val($write.val() + character);
   mark()
+});
+
+
+
+// _________________________________________________________________________________________ searchArticle.js
+
+let $writeArticle = $('#term-article').length && $('#term-article')
+let noFound = $('.no-found')
+let searchArticleList = $('.search-article__left__list')
+
+let fetchServer = (count) => {
+  if (count === 0) {
+    $("p.results").fadeIn().append("Ничего не найдено");
+    noFound.css('display', 'flex')
+  } else {
+    $("p.results").fadeIn().append('Hайдено: ' + count + ` ${declOfNum(count, ['статья', 'статьи', 'статей'])}.`);
+    searchArticleList.css('display', 'flex')
+    noFound.css('display', 'none')
+  }
+}
+
+$('#keyboard-search-article .letter').click(function () {
+  let $this = $(this),
+    character = $this.html();
+  $("p.results").hide().empty();
+
+  if ($this.hasClass('delete')) {
+    let html = $writeArticle.val();
+    $("p.results").hide().empty();
+    $writeArticle.val(html.substr(0, html.length - 1));
+    return false;
+  }
+  if ($this.hasClass('spacing')) character = ' ';
+  $writeArticle.val($writeArticle.val() + character);
+
+  if ($writeArticle.val().length >= 3) {
+    //запрос на сервер, приходят статьи и count
+    /* fetchServer(count)*/
+  }
+})
+
+$("#search-articles").on("click", () => {
+  //запрос на сервер, приходят статьи и count
+  /*  fetchServer(3)*/
 });

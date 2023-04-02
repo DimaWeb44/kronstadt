@@ -4,3 +4,4 @@
 // @prepros-append video.js
 // @prepros-append slider.js
 // @prepros-append search.js
+// @prepros-append searchArticle.js

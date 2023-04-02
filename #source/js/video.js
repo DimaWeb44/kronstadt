@@ -1,6 +1,8 @@
+
+
 //____________________________________________________________________________________________ video.js
+
 let video = document.querySelectorAll(".video-box");
-// Buttons
 
 video && video.forEach((el) => {
   let video = el.querySelector('video')
