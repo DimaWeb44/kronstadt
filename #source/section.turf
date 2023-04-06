@@ -10,7 +10,7 @@
     <title>Статья</title>
 </head>
 <body data-barba="wrapper">
-<div class="wrapper" data-barba="container" data-barba-namespace="section1">
+<div class="wrapper" data-barba="container" data-barba-namespace="section">
     <!--@import "section.html"-->
 </div>
 <script type="text/javascript" src="./lib/jquery.min.js"></script>
@@ -25,11 +25,16 @@
     slidesToShow: 1,
     slidesToScroll: 1,
     fade: true,
+    autoplay: true,
+    autoplaySpeed: 4000,
+    speed: 1200,
+    waitForAnimate: false,
+    pauseOnHover: true,
     asNavFor: '.section__slider-1-text',
     appendArrows: $('.slider-1-btn'),
     prevArrow: $('.prev-slider-1'),
     nextArrow: $('.next-slider-1'),
-    cssEase: 'linear',
+    cssEase: 'ease',
   });
 
   $('.section__slider-1-text').length && $('.section__slider-1-text').slick({
@@ -38,8 +43,10 @@
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
+    waitForAnimate: false,
     fade: true,
-    cssEase: 'linear',
+    speed: 1200,
+    cssEase: 'ease',
     asNavFor: '.section__slider-1',
   });
 
@@ -50,11 +57,15 @@
     slidesToShow: 1,
     slidesToScroll: 1,
     fade: true,
-    adaptiveHeight: true,
+    autoplay: true,
+    autoplaySpeed: 4000,
+    speed: 1200,
+    waitForAnimate: false,
+    pauseOnHover: true,
     appendArrows: $('.slider-2-btn'),
     prevArrow: $('.prev-slider-2'),
     nextArrow: $('.next-slider-2'),
-    cssEase: 'linear',
+    cssEase: 'ease',
   });
 
   $('.gallery__slider-big').length && $('.gallery__slider-big').slick({
@@ -65,7 +76,7 @@
     slidesToScroll: 1,
     centerMode: true,
     centerPadding: '668px',
-    /*  centerPadding: '868px',*/
+    variableWidth: true,
     asNavFor: '.gallery__slider-small',
     prevArrow: $('.prev-gallery__slider-big'),
     nextArrow: $('.next-gallery__slider-big'),
@@ -103,7 +114,7 @@
       clickClose: false,
       showClose: false,
       closeExisting: false,
-      fadeDuration: 300,
+      fadeDuration: 400,
       fadeDelay: 0,
     });
     return false;

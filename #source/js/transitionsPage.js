@@ -1,28 +1,6 @@
-
-
 //_________________________________________________________________________________________________transitionsPage
 
-/*
-$('.page').length && $('.page').click(function (event) {
-  var x = event.pageX;
-  var y = event.pageY;
-
-  $('.page-next').css('z-index', parseInt($('.page').css('z-index')) + 1);
-  $('.page-next').css('clip-path', 'circle(0% at ' + x + 'px ' + y + 'px)');
-
-  anime({
-    targets: $('.page-next'),
-    update: function (anim) {
-      $('.page-next').css('clip-path', 'circle(' + (anim.progress * 2) + '% at ' + x + 'px ' + y + 'px)');
-    }
-  });
-});
-*/
-
-
-
-
-let animeFunc = (targets, step, direction) => {
+let animeTransitions = (targets, step, direction) => {
   const duration = 1000;
   const from = step === 'leave' ? 0 : 100;
   const to = step === 'leave' ? 100 : 0;
@@ -57,6 +35,33 @@ let animeFunc = (targets, step, direction) => {
   return anim.finished;
 }
 
+let opacityTransitions = (targets, step) => {
+  const duration = 1000;
+  const anim = anime.timeline({
+    easing: 'easeInOutQuart',
+  });
+
+  if (step === 'leave') {
+    anim.add({
+      targets: targets,
+      opacity: [1, 0],
+      duration: duration,
+      easing: 'easeInOutQuart',
+    });
+  } else {
+    anim.add({
+      targets: targets,
+      opacity: [0, 1],
+      duration: duration,
+      easing: 'easeInOutQuart',
+      delay: 100,
+    });
+  }
+
+
+  return anim.finished;
+}
+
 barba.hooks.before(() => {
   barba.wrapper.classList.add('is-animating');
 });
@@ -69,16 +74,23 @@ barba.init({
   transitions: [
     {
       sync: true,
-      custom: ({ trigger }) => trigger.dataset && trigger.dataset.direction === 'next',
-      leave: ({ current }) => animeFunc(current.container, 'leave', 'next'),
-      enter: ({ next }) => animeFunc(next.container, 'enter', 'next'),
+      custom: ({trigger}) => trigger.dataset && trigger.dataset.direction === 'next',
+      leave: ({current}) => animeTransitions(current.container.querySelector('.page__box__content'), 'leave', 'next'),
+      enter: ({next}) => animeTransitions(next.container.querySelector('.page__box__content'), 'enter', 'next'),
     },
     {
       sync: true,
-      custom: ({ trigger }) => trigger.dataset && trigger.dataset.direction === 'prev',
-      leave: ({ current }) => animeFunc(current.container, 'leave', 'prev'),
-      enter: ({ next }) => animeFunc(next.container, 'enter', 'prev'),
+      custom: ({trigger}) => trigger.dataset && trigger.dataset.direction === 'prev',
+      leave: ({current}) => animeTransitions(current.container.querySelector('.page__box__content'), 'leave', 'prev'),
+      enter: ({next}) => animeTransitions(next.container.querySelector('.page__box__content'), 'enter', 'prev'),
     },
+    {
+      sync: true,
+      custom: ({trigger}) => trigger.dataset && trigger.dataset.direction === 'opacity',
+      leave: ({current}) => opacityTransitions(current.container, 'leave'),
+      enter: ({next}) => opacityTransitions(next.container, 'enter'),
+    },
+
   ],
 });
 
@@ -87,3 +99,4 @@ barba.hooks.beforeEnter((data) => {
   console.log('kkk')
 });
 */
+

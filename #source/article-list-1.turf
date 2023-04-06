@@ -6,8 +6,8 @@
     <link rel="stylesheet" type="text/css" href="./css/style.css">
     <title>Список 1</title>
 </head>
-<body data-barba="wrapper">
-<div class="wrapper" data-barba="container" data-barba-namespace="article-list-1">
+<body>
+<div class="wrapper" data-barba="wrapper" >
     <!--@import "article-list-1.html"-->
 </div>
 <script type="text/javascript" src="./lib/jquery.min.js"></script>

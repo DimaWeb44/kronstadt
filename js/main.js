@@ -16,36 +16,15 @@ languageBtn.length && languageBtn.forEach(el => {
   })
 })
 
+
 closeSearchArticle = document.querySelector('.close-search-article')
 closeSearchArticle && closeSearchArticle.addEventListener('click', () => {
   history.back();
   return false;
 })
-
-
 //_________________________________________________________________________________________________transitionsPage
 
-/*
-$('.page').length && $('.page').click(function (event) {
-  var x = event.pageX;
-  var y = event.pageY;
-
-  $('.page-next').css('z-index', parseInt($('.page').css('z-index')) + 1);
-  $('.page-next').css('clip-path', 'circle(0% at ' + x + 'px ' + y + 'px)');
-
-  anime({
-    targets: $('.page-next'),
-    update: function (anim) {
-      $('.page-next').css('clip-path', 'circle(' + (anim.progress * 2) + '% at ' + x + 'px ' + y + 'px)');
-    }
-  });
-});
-*/
-
-
-
-
-let animeFunc = (targets, step, direction) => {
+let animeTransitions = (targets, step, direction) => {
   const duration = 1000;
   const from = step === 'leave' ? 0 : 100;
   const to = step === 'leave' ? 100 : 0;
@@ -80,6 +59,33 @@ let animeFunc = (targets, step, direction) => {
   return anim.finished;
 }
 
+let opacityTransitions = (targets, step) => {
+  const duration = 1000;
+  const anim = anime.timeline({
+    easing: 'easeInOutQuart',
+  });
+
+  if (step === 'leave') {
+    anim.add({
+      targets: targets,
+      opacity: [1, 0],
+      duration: duration,
+      easing: 'easeInOutQuart',
+    });
+  } else {
+    anim.add({
+      targets: targets,
+      opacity: [0, 1],
+      duration: duration,
+      easing: 'easeInOutQuart',
+      delay: 100,
+    });
+  }
+
+
+  return anim.finished;
+}
+
 barba.hooks.before(() => {
   barba.wrapper.classList.add('is-animating');
 });
@@ -92,16 +98,23 @@ barba.init({
   transitions: [
     {
       sync: true,
-      custom: ({ trigger }) => trigger.dataset && trigger.dataset.direction === 'next',
-      leave: ({ current }) => animeFunc(current.container, 'leave', 'next'),
-      enter: ({ next }) => animeFunc(next.container, 'enter', 'next'),
+      custom: ({trigger}) => trigger.dataset && trigger.dataset.direction === 'next',
+      leave: ({current}) => animeTransitions(current.container.querySelector('.page__box__content'), 'leave', 'next'),
+      enter: ({next}) => animeTransitions(next.container.querySelector('.page__box__content'), 'enter', 'next'),
     },
     {
       sync: true,
-      custom: ({ trigger }) => trigger.dataset && trigger.dataset.direction === 'prev',
-      leave: ({ current }) => animeFunc(current.container, 'leave', 'prev'),
-      enter: ({ next }) => animeFunc(next.container, 'enter', 'prev'),
+      custom: ({trigger}) => trigger.dataset && trigger.dataset.direction === 'prev',
+      leave: ({current}) => animeTransitions(current.container.querySelector('.page__box__content'), 'leave', 'prev'),
+      enter: ({next}) => animeTransitions(next.container.querySelector('.page__box__content'), 'enter', 'prev'),
     },
+    {
+      sync: true,
+      custom: ({trigger}) => trigger.dataset && trigger.dataset.direction === 'opacity',
+      leave: ({current}) => opacityTransitions(current.container, 'leave'),
+      enter: ({next}) => opacityTransitions(next.container, 'enter'),
+    },
+
   ],
 });
 
@@ -110,6 +123,7 @@ barba.hooks.beforeEnter((data) => {
   console.log('kkk')
 });
 */
+
 
 
 
@@ -193,30 +207,47 @@ video && video.forEach((el) => {
   });
 })
 
-
-
 // _________________________________________________________________________________________ slider.js
+sectionSlider1 = $('.section__slider-1')
+sectionSlider2 = $('.section__slider-2')
 
 function setNumberSlide(e) {
-  let indexSlide = $('.section__slider-2').length && $('.section__slider-2').slick('slickCurrentSlide');
-  $('.gallery__slider-big').length && $('.gallery__slider-big').slick('slickGoTo', indexSlide);
+  let indexSlide = sectionSlider2.length && sectionSlider2.slick('slickCurrentSlide');
+  $('.gallery__slider-big').length && $('.gallery__slider-big').slick('slickGoTo', indexSlide, false);
 }
 
 $('.gallery-slider-2').length && $('.gallery-slider-2').on('click', () => setNumberSlide());
 
 function setNumberSlideGalleri(e) {
   let indexSlide = $('.gallery__slider-big').length && $('.gallery__slider-big').slick('slickCurrentSlide');
-  $('.gallery__slider-full-photo').length && $('.gallery__slider-full-photo').slick('slickGoTo', indexSlide);
+  $('.gallery__slider-full-photo').length && $('.gallery__slider-full-photo').slick('slickGoTo', indexSlide, false);
 }
 
 $('#open-full-photo').length && $('#open-full-photo').on('click', () => setNumberSlideGalleri());
 
 function setNumberSlideFullPhoto(e) {
   let indexSlide = $('.gallery__slider-full-photo').length && $('.gallery__slider-full-photo').slick('slickCurrentSlide');
-  $('.gallery__slider-big').length && $('.gallery__slider-big').slick('slickGoTo', indexSlide);
+  $('.gallery__slider-big').length && $('.gallery__slider-big').slick('slickGoTo', indexSlide, false);
 }
 
 $('#close-full-photo').length && $('#close-full-photo').on('click', () => setNumberSlideFullPhoto());
+
+
+// _________________________________________________________________________________________________redirectPage.js
+let redirectTime = 100000
+let redirectPage
+const runTimer = () => {
+  redirectPage = setTimeout(() => {
+    window.location.replace("./index.html");
+  }, redirectTime)
+}
+
+window.addEventListener('touchstart', () => {
+  sectionSlider1.length && sectionSlider1.slick('slickPause');
+  sectionSlider2.length && sectionSlider2.slick('slickPause');
+  clearTimeout(redirectPage)
+  runTimer()
+})
 
 
 // _________________________________________________________________________________________ search.js

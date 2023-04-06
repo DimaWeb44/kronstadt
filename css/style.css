@@ -100,7 +100,6 @@ body {
   position: absolute;
   width: 100vw;
   height: 100vh;
-  z-index: 1;
 }
 .page__box {
   display: -webkit-box;
@@ -110,6 +109,26 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+.page__box__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+.page__box__nav {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 .main {
@@ -265,10 +284,10 @@ body {
   right: 440px;
 }
 .article-list .article-4 .article-img {
-  -o-object-fit: contain;
-     object-fit: contain;
+  -o-object-fit: cover;
+     object-fit: cover;
   width: 100%;
-  height: auto;
+  height: 100%;
   -o-object-position: bottom;
      object-position: bottom;
 }
@@ -730,7 +749,7 @@ body {
   margin-bottom: 228px;
 }
 .preview1__right__box__left__item1__photo {
-  height: auto;
+  height: 100%;
   width: 525px;
   overflow: hidden;
   display: -webkit-box;
@@ -741,11 +760,10 @@ body {
           align-items: end;
 }
 .preview1__right__box__left__item1__photo img {
-  -o-object-fit: contain;
-     object-fit: contain;
+  -o-object-fit: cover;
+     object-fit: cover;
   width: 100%;
-  height: auto;
-  max-width: none;
+  height: 100%;
 }
 .preview1__right__box__left__item1__text {
   padding: 61px 86px 51px 46px;
@@ -1551,6 +1569,12 @@ body {
 }
 
 .section__right-none {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: right;
+      -ms-flex-pack: right;
+          justify-content: right;
   -webkit-transition: 0.5s ease;
   transition: 0.5s ease;
   opacity: 1;
@@ -1605,8 +1629,8 @@ body {
 }
 
 .section__slider-2 {
-  width: 100%;
-  height: 100%;
+  width: 1060px;
+  height: 100vh;
   position: relative;
 }
 .section__slider-2::before {
@@ -1625,7 +1649,7 @@ body {
 .slider-2-btn {
   z-index: 5;
   position: absolute;
-  bottom: 700px;
+  bottom: 696px;
   left: 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1800,9 +1824,11 @@ body {
 }
 .slider-1-slide__photo img {
   min-width: 100%;
-  min-height: auto;
-  -o-object-fit: contain;
-     object-fit: contain;
+  min-height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: bottom;
+     object-position: bottom;
 }
 
 .slide-video {
@@ -2116,9 +2142,13 @@ video {
   width: 100%;
   position: relative;
 }
+.slide-big .slide-video img {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
 .slide-big__photo {
   width: 1336px;
-  height: 868px;
+  height: 900px;
   overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2127,8 +2157,8 @@ video {
       -ms-flex-align: end;
           align-items: end;
   margin: 0 auto;
-  -webkit-transition: 0.4s ease;
-  transition: 0.4s ease;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 .slide-big__photo img {
   -o-object-fit: contain;
@@ -2223,27 +2253,17 @@ video {
   top: 1000px;
 }
 
-/*.gallery__slider-big .slide-big{
-  align-items: flex-start;
-  & .slide-big__photo {
-    margin: 0;
-    align-items: flex-start;
-    & img {
-      object-position: bottom left;
-    }
-  }
-}*/
 .gallery__slider-big .slick-slide.slick-current .slide-big__text {
   opacity: 1;
-  -webkit-transition: 0.4s ease;
-  transition: 0.4s ease;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .gallery__slider-big .slick-slide.slick-current .slide-big__photo {
   width: 1915px;
   height: 1350px;
-  -webkit-transition: 0.4s ease;
-  transition: 0.4s ease;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .slide-video-small {
@@ -2947,9 +2967,8 @@ mark {
      object-fit: cover;
   width: 100%;
   height: 100%;
-  position: relative;
 }
-.search-article__left__list__item img::before {
+.search-article .bg-img::before {
   content: "";
   position: absolute;
   top: 0;
@@ -2959,7 +2978,7 @@ mark {
   width: 100%;
   height: 100%;
   z-index: 0;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 .search-article .left-panel {
   background-color: transparent;

@@ -10,7 +10,7 @@
     <title>Статья</title>
 </head>
 <body data-barba="wrapper">
-<div class="wrapper" data-barba="container" data-barba-namespace="section1">
+<div class="wrapper" data-barba="container" data-barba-namespace="section">
 <div class="section">
     <div class="section__left">
         <div class="section__left__text">
@@ -75,7 +75,7 @@
                 </div>
                 <div class="slider-1-slide">
                     <a href="#" class="slider-1-slide__photo">
-                        <img src="./img/preview2/photo/image1.png" alt="photo">
+                        <img src="./img/section/photo/image4.png" alt="photo">
                     </a>
                 </div>
                 <div class="slider-1-slide">
@@ -331,7 +331,7 @@
         </div>
     </div>
     <div class="nav">
-        <a class="nav__button" href="./preview2.html">
+        <a class="nav__button" data-direction="opacity" href="./preview2.html">
             <svg style="margin-right: 48px; transform: rotate(180deg)" width="42" height="86" viewBox="0 0 42 86"
                  fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -343,7 +343,7 @@
             </svg>
             Предыдущая статья
         </a>
-        <a class="nav__button" href="./preview4.html">
+        <a class="nav__button" data-direction="opacity" href="./preview4.html">
             Следующая статья
             <svg style="margin-left: 48px" width="42" height="86" viewBox="0 0 42 86" fill="none"
                  xmlns="http://www.w3.org/2000/svg">
@@ -421,7 +421,7 @@
                     </svg>
                 </div>
             </div>
-            <a href="./article-list-1.html" class="home-btn">
+            <a href="./article-list-1.html" data-direction="opacity" class="home-btn">
                 <svg width="75" height="83" viewBox="0 0 75 83" fill="none"
                      xmlns="http://www.w3.org/2000/svg">
                     <path d="M24.5352 80.0769L24.5352 52.022C24.5352 47.8343 27.9299 44.4395 32.1176 44.4395L43.4912 44.4395C47.6789 44.4395 51.0736 47.8343 51.0736 52.022L51.0736 80.0769L24.5352 80.0769Z"
@@ -1207,11 +1207,16 @@
     slidesToShow: 1,
     slidesToScroll: 1,
     fade: true,
+    autoplay: true,
+    autoplaySpeed: 4000,
+    speed: 1200,
+    waitForAnimate: false,
+    pauseOnHover: true,
     asNavFor: '.section__slider-1-text',
     appendArrows: $('.slider-1-btn'),
     prevArrow: $('.prev-slider-1'),
     nextArrow: $('.next-slider-1'),
-    cssEase: 'linear',
+    cssEase: 'ease',
   });
 
   $('.section__slider-1-text').length && $('.section__slider-1-text').slick({
@@ -1220,8 +1225,10 @@
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
+    waitForAnimate: false,
     fade: true,
-    cssEase: 'linear',
+    speed: 1200,
+    cssEase: 'ease',
     asNavFor: '.section__slider-1',
   });
 
@@ -1232,11 +1239,15 @@
     slidesToShow: 1,
     slidesToScroll: 1,
     fade: true,
-    adaptiveHeight: true,
+    autoplay: true,
+    autoplaySpeed: 4000,
+    speed: 1200,
+    waitForAnimate: false,
+    pauseOnHover: true,
     appendArrows: $('.slider-2-btn'),
     prevArrow: $('.prev-slider-2'),
     nextArrow: $('.next-slider-2'),
-    cssEase: 'linear',
+    cssEase: 'ease',
   });
 
   $('.gallery__slider-big').length && $('.gallery__slider-big').slick({
@@ -1247,7 +1258,7 @@
     slidesToScroll: 1,
     centerMode: true,
     centerPadding: '668px',
-    /*  centerPadding: '868px',*/
+    variableWidth: true,
     asNavFor: '.gallery__slider-small',
     prevArrow: $('.prev-gallery__slider-big'),
     nextArrow: $('.next-gallery__slider-big'),
@@ -1285,7 +1296,7 @@
       clickClose: false,
       showClose: false,
       closeExisting: false,
-      fadeDuration: 300,
+      fadeDuration: 400,
       fadeDelay: 0,
     });
     return false;
