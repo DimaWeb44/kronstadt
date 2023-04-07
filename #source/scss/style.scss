@@ -9,12 +9,14 @@
   position: absolute;
   width: 100vw;
   height: 100vh;
+
   &__box {
     display: flex;
     flex-direction: row;
     width: 100vw;
     height: 100vh;
     position: relative;
+
     &__content {
       display: flex;
       flex-direction: row;
@@ -22,6 +24,7 @@
       height: 100vh;
       position: relative;
     }
+
     &__nav {
       position: absolute;
       bottom: 0;
@@ -116,6 +119,7 @@
       height: 100%;
       overflow: hidden;
       position: relative;
+      background-color: $bg-gray;
 
       & .article-img {
         object-fit: cover;
@@ -2653,4 +2657,32 @@ mark {
     position: absolute;
     width: 100%;
   }
+}
+
+.preloader {
+  background-color: #66B1BD;
+  position: absolute;
+  z-index: 99;
+  height: 50%;
+  width: 0;
+  &--top {
+    top: 0;
+    width: 0;
+    left: 0;
+  }
+  &--bottom {
+    bottom: 0;
+    width: 0;
+    right: 0;
+  }
+}
+
+.anim-text {
+  opacity: 0;
+}
+
+.panel-next-anim{
+  opacity: 0;
+  z-index: -999;
+  position: absolute;
 }

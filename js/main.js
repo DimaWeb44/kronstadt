@@ -1,4 +1,5 @@
 
+F
 // ____________________________________________________________________________________________ nav.js
 
 eyeBtn = document.querySelector('.eye-btn')
@@ -60,7 +61,7 @@ let animeTransitions = (targets, step, direction) => {
 }
 
 let opacityTransitions = (targets, step) => {
-  const duration = 1000;
+  const duration = 1200;
   const anim = anime.timeline({
     easing: 'easeInOutQuart',
   });
@@ -78,13 +79,83 @@ let opacityTransitions = (targets, step) => {
       opacity: [0, 1],
       duration: duration,
       easing: 'easeInOutQuart',
-      delay: 100,
+      /*delay: 100,*/
     });
+    targets.querySelector('.anim-text') && anim.add({
+      targets: targets.querySelectorAll('.anim-text'),
+      opacity: [0, 1],
+      translateY: [100, 0],
+      duration: 2500,
+      easing: 'easeInOutExpo',
+    }, '-=1000');
+
   }
+  return anim.finished;
+}
+
+let pageAnimIn2 = (container) => {
+  const anim = anime.timeline({
+    duration: 2000,
+  });
+  anim.add({
+    targets: container.querySelector('.preloader--top'),
+    width: '100%',
+    duration: 2000,
+    easing: 'easeInOutExpo'
+  });
+  anim.add({
+    targets: container.querySelector('.preloader--bottom'),
+    width: '100%',
+    duration: 2000,
+    easing: 'easeInOutExpo'
+  }, '-=2000');
+  return anim.finished;
+}
+let pageAnimOut2 = (container) => {
+  const anim = anime.timeline({
+    duration: 3500,
+  });
+  anim.add({
+    targets: container.querySelector('.preloader--top'),
+    width: ['100%', 0],
+    duration: 2000,
+    easing: 'easeInOutExpo'
+  });
+  anim.add({
+    targets: container.querySelector('.preloader--bottom'),
+    width: ['100%', 0],
+    duration: 2000,
+    easing: 'easeInOutExpo'
+  }, '-=2000');
+  anim.add({
+    targets: container.querySelectorAll('.anim-text'),
+    opacity: [0, 1],
+    scale: [1.1, 1],
+    translateY: [100, 0],
+    duration: 5000,
+    easing: 'easeInOutExpo',
+    delay: function (el, i, l) {
+      return i * 800;
+    },
+  }, '-=1400');
 
 
   return anim.finished;
 }
+
+/*let pageAnimText = (container) => {
+  const anim = anime.timeline({
+    duration: 2000,
+  });
+  anim.add({
+    targets: container.querySelectorAll('.anim-text'),
+    opacity: [0, 1],
+    translateX: [30, 0],
+    duration: 2000,
+    easing: 'easeInOutExpo'
+  });
+  return anim.finished;
+}*/
 
 barba.hooks.before(() => {
   barba.wrapper.classList.add('is-animating');
@@ -95,6 +166,7 @@ barba.hooks.after(() => {
 
 barba.init({
   debug: true,
+  preventRunning: true,
   transitions: [
     {
       sync: true,
@@ -110,19 +182,26 @@ barba.init({
     },
     {
       sync: true,
-      custom: ({trigger}) => trigger.dataset && trigger.dataset.direction === 'opacity',
       leave: ({current}) => opacityTransitions(current.container, 'leave'),
       enter: ({next}) => opacityTransitions(next.container, 'enter'),
     },
+    {
+      custom: ({trigger}) => trigger.dataset && trigger.dataset.direction === 'article-anim',
+      leave: ({current}) => pageAnimIn2(current.container),
+      enter: ({next}) => pageAnimOut2(next.container),
 
+    },
+    {
+      once: ({next})=> opacityTransitions(next.container, 'enter'),
+    }
   ],
+  views: [{
+    namespace: 'home',
+    beforeEnter() {
+      // update the menu based on user navigation
+    },
+  }]
 });
-
-/*
-barba.hooks.beforeEnter((data) => {
-  console.log('kkk')
-});
-*/
 
 
 
@@ -234,20 +313,41 @@ $('#close-full-photo').length && $('#close-full-photo').on('click', () => setNum
 
 
 // _________________________________________________________________________________________________redirectPage.js
-let redirectTime = 100000
+let redirectTime = 30000
+let redirectArticleTime = 5000
 let redirectPage
+let redirectArticleListPage
+
 const runTimer = () => {
   redirectPage = setTimeout(() => {
     window.location.replace("./index.html");
   }, redirectTime)
 }
 
+const runTimerArticle = () => {
+    redirectArticleListPage = setInterval(() => {
+      document.querySelector('.panel-next-anim').click()
+    }, redirectArticleTime)
+}
+
 window.addEventListener('touchstart', () => {
   sectionSlider1.length && sectionSlider1.slick('slickPause');
   sectionSlider2.length && sectionSlider2.slick('slickPause');
   clearTimeout(redirectPage)
+  clearTimeout(redirectArticleListPage)
   runTimer()
+  if (document.querySelector('.main')) {
+    runTimerArticle()
+  }
 })
+
+/*
+var paramsString = document.location.search; // ?page=4&limit=10&sortby=desc
+var searchParams = new URLSearchParams(paramsString);
+
+searchParams.get("page"); // 4
+searchParams.get("sortby"); // desc*/
+
 
 
 // _________________________________________________________________________________________ search.js

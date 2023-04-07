@@ -1,4 +1,6 @@
 <div class="page__box" data-barba="container" data-barba-namespace="article-list-1">
+    <div class="preloader preloader--top"></div>
+    <div class="preloader preloader--bottom"></div>
     <div class="page__box__content">
         <div class="left-menu" style="display: none">
             <ul>
@@ -51,17 +53,17 @@
         <div class="article-list article-page-1">
             <div class="article-list__top">
                 <a href="./preview1.html" data-direction="opacity">
-                    <div class="article-list__top__article-1">
+                    <div id="top-left-photo" class="article-list__top__article-1">
                         <img class="article-img" src="./img/article-list/article1.png" alt="photo">
                         <span class="article-number">01</span>
-                        <div class="article-title">Система оказания медицинской помощи на флоте</div>
+                        <div class="article-title anim-text">Система оказания медицинской помощи на флоте</div>
                     </div>
                 </a>
                 <a href="./preview3.html" data-direction="opacity">
-                    <div class="article-list__top__article-1 article-4">
+                    <div id="top-right-photo" class="article-list__top__article-1 article-4">
                         <img class="article-img" src="./img/article-list/article3.png" alt="photo">
                         <span class="article-number">04</span>
-                        <div class="article-title">Морские госпитали</div>
+                        <div class="article-title anim-text">Морские госпитали</div>
                     </div>
                 </a>
             </div>
@@ -70,7 +72,7 @@
                     <div class="article-list__top__article-1 article-4 article-2">
                         <img class="article-img" src="./img/article-list/article2.png" alt="photo">
                         <span class="article-number">02</span>
-                        <div class="article-title">Положение в послепетровской России</div>
+                        <div class="article-title anim-text">Положение в послепетровской России</div>
                         <div class="article-line-2"></div>
                         <div class="article-line-2-1">
                             <span></span>
@@ -82,7 +84,7 @@
                     <div class="article-list__top__article-1 article-3">
                         <img class="article-img" src="" alt="" onerror="this.style.display='none'">
                         <span class="article-number">03</span>
-                        <div class="article-title">Советские годы и современная Россия</div>
+                        <div class="article-title anim-text">Советские годы и современная Россия</div>
                         <div class="article-line-3"></div>
                     </div>
                 </a>
@@ -167,7 +169,7 @@
             </div>
         </div>
         <div class="panel">
-            <a href="#" class="panel-prev">
+            <a href="#" class="panel-prev" data-direction="opacity">
                 <svg width="50" height="110" viewBox="0 0 50 110" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd"
                           d="M2.82093 56.1507C2.25934 55.6058 2.24576 54.7089 2.7906 54.1473L45.8567 9.75686C46.4015 9.19527 47.2984 9.18169 47.86 9.72652C48.4216 10.2714 48.4352 11.1683 47.8904 11.7299L4.8243 56.1203C4.27947 56.6819 3.38253 56.6955 2.82093 56.1507Z"
@@ -193,4 +195,5 @@
             </a>
         </div>
     </div>
+    <a href="./article-list-2.html" class="panel-next-anim" data-direction="article-anim"></a>
 </div>

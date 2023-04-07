@@ -25,17 +25,37 @@ $('#close-full-photo').length && $('#close-full-photo').on('click', () => setNum
 
 
 // _________________________________________________________________________________________________redirectPage.js
-let redirectTime = 100000
+let redirectTime = 30000
+let redirectArticleTime = 5000
 let redirectPage
+let redirectArticleListPage
+
 const runTimer = () => {
   redirectPage = setTimeout(() => {
     window.location.replace("./index.html");
   }, redirectTime)
 }
 
+const runTimerArticle = () => {
+    redirectArticleListPage = setInterval(() => {
+      document.querySelector('.panel-next-anim').click()
+    }, redirectArticleTime)
+}
+
 window.addEventListener('touchstart', () => {
   sectionSlider1.length && sectionSlider1.slick('slickPause');
   sectionSlider2.length && sectionSlider2.slick('slickPause');
   clearTimeout(redirectPage)
+  clearTimeout(redirectArticleListPage)
   runTimer()
+  if (document.querySelector('.main')) {
+    runTimerArticle()
+  }
 })
+
+/*
+var paramsString = document.location.search; // ?page=4&limit=10&sortby=desc
+var searchParams = new URLSearchParams(paramsString);
+
+searchParams.get("page"); // 4
+searchParams.get("sortby"); // desc*/

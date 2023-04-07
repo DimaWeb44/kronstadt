@@ -76,6 +76,7 @@ button, input {
 
 a {
   text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 html, body {
@@ -237,6 +238,7 @@ body {
   height: 100%;
   overflow: hidden;
   position: relative;
+  background-color: #6A7A7E;
 }
 .article-list__top__article-1 .article-img {
   -o-object-fit: cover;
@@ -3293,4 +3295,32 @@ mark {
 .is-animating > [data-barba=container] {
   position: absolute;
   width: 100%;
+}
+
+.preloader {
+  background-color: #66B1BD;
+  position: absolute;
+  z-index: 99;
+  height: 50%;
+  width: 0;
+}
+.preloader--top {
+  top: 0;
+  width: 0;
+  left: 0;
+}
+.preloader--bottom {
+  bottom: 0;
+  width: 0;
+  right: 0;
+}
+
+.anim-text {
+  opacity: 0;
+}
+
+.panel-next-anim {
+  opacity: 0;
+  z-index: -999;
+  position: absolute;
 }
