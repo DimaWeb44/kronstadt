@@ -3300,7 +3300,7 @@ mark {
 .preloader {
   background-color: #66B1BD;
   position: absolute;
-  z-index: 99;
+  z-index: 9999;
   height: 50%;
   width: 0;
 }

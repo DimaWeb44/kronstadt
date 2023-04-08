@@ -114,8 +114,8 @@
       clickClose: false,
       showClose: false,
       closeExisting: false,
-      fadeDuration: 400,
-      fadeDelay: 0,
+      fadeDuration: 800,
+      fadeDelay: 0.50
     });
     return false;
   });

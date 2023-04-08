@@ -112,7 +112,7 @@ let pageAnimOut2 = (container) => {
     delay: function (el, i, l) {
       return i * 800;
     },
-  }, '-=1400');
+  }, '-=1600');
 
 
   return anim.finished;
@@ -167,13 +167,13 @@ barba.init({
 
     },
     {
-      once: ({next})=> opacityTransitions(next.container, 'enter'),
+      once: ({next}) => opacityTransitions(next.container, 'enter'),
     }
   ],
   views: [{
-    namespace: 'home',
+    namespace: 'section',
     beforeEnter() {
-      // update the menu based on user navigation
+
     },
   }]
 });

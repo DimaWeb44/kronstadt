@@ -53,9 +53,3 @@ window.addEventListener('touchstart', () => {
   }
 })
 
-/*
-var paramsString = document.location.search; // ?page=4&limit=10&sortby=desc
-var searchParams = new URLSearchParams(paramsString);
-
-searchParams.get("page"); // 4
-searchParams.get("sortby"); // desc*/
