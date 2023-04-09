@@ -7,7 +7,7 @@
     <title>Название статьи 3</title>
 </head>
 <body data-barba="wrapper">
-<div class="wrapper" data-barba="container" data-barba-namespace="prev3">
+<div class="wrapper" data-barba="container" data-barba-namespace="prev">
     <!--@import "preview3.html"-->
 </div>
 <script type="text/javascript" src="./lib/jquery.min.js"></script>

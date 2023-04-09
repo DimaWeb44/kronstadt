@@ -140,7 +140,7 @@ barba.hooks.after(() => {
 });
 
 barba.init({
-  debug: true,
+  /*debug: true,*/
   preventRunning: true,
   transitions: [
     {
@@ -172,9 +172,12 @@ barba.init({
   ],
   views: [{
     namespace: 'section',
-    beforeEnter() {
+    beforeEnter({next}) {
 
-    },
+    }
   }]
 });
 
+barba.hooks.beforeEnter(({next}) => {
+
+});
