@@ -2665,11 +2665,13 @@ mark {
   z-index: 9999;
   height: 50%;
   width: 0;
+
   &--top {
     top: 0;
     width: 0;
     left: 0;
   }
+
   &--bottom {
     bottom: 0;
     width: 0;
@@ -2681,7 +2683,7 @@ mark {
   opacity: 0;
 }
 
-.panel-next-anim{
+.panel-next-anim {
   opacity: 0;
   z-index: -999;
   position: absolute;

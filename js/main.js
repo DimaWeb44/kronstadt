@@ -130,7 +130,7 @@ $('#close-full-photo').length && $('#close-full-photo').on('click', () => setNum
 
 
 // _________________________________________________________________________________________________redirectPage.js
-let redirectTime = 30000
+let redirectTime = 3000000
 let redirectArticleTime = 5000
 let redirectPage
 let redirectArticleListPage
@@ -329,7 +329,6 @@ let opacityTransitions = (targets, step) => {
       opacity: [0, 1],
       duration: duration,
       easing: 'easeInOutQuart',
-      /*delay: 100,*/
     });
     targets.querySelector('.anim-text') && anim.add({
       targets: targets.querySelectorAll('.anim-text'),
@@ -363,7 +362,7 @@ let pageAnimIn2 = (container) => {
 }
 let pageAnimOut2 = (container) => {
   const anim = anime.timeline({
-    duration: 3500,
+    duration: 2000,
   });
   anim.add({
     targets: container.querySelector('.preloader--top'),
@@ -393,25 +392,15 @@ let pageAnimOut2 = (container) => {
   return anim.finished;
 }
 
-/*let pageAnimText = (container) => {
-  const anim = anime.timeline({
-    duration: 2000,
-  });
-  anim.add({
-    targets: container.querySelectorAll('.anim-text'),
-    opacity: [0, 1],
-    translateX: [30, 0],
-    duration: 2000,
-    easing: 'easeInOutExpo'
-  });
-  return anim.finished;
-}*/
 
 barba.hooks.before(() => {
   barba.wrapper.classList.add('is-animating');
 });
 barba.hooks.after(() => {
   barba.wrapper.classList.remove('is-animating');
+});
+barba.hooks.beforeEnter(({next}) => {
+
 });
 
 barba.init({
@@ -439,7 +428,6 @@ barba.init({
       custom: ({trigger}) => trigger.dataset && trigger.dataset.direction === 'article-anim',
       leave: ({current}) => pageAnimIn2(current.container),
       enter: ({next}) => pageAnimOut2(next.container),
-
     },
     {
       once: ({next}) => opacityTransitions(next.container, 'enter'),
@@ -453,6 +441,5 @@ barba.init({
   }]
 });
 
-barba.hooks.beforeEnter(({next}) => {
 
-});
+//_________________________________________________________________________________________________animPage

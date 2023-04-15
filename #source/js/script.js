@@ -5,3 +5,4 @@
 // @prepros-append search.js
 // @prepros-append searchArticle.js
 // @prepros-append transitionsPage.js
+// @prepros-append animPage.js

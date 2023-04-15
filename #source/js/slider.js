@@ -25,7 +25,7 @@ $('#close-full-photo').length && $('#close-full-photo').on('click', () => setNum
 
 
 // _________________________________________________________________________________________________redirectPage.js
-let redirectTime = 30000
+let redirectTime = 3000000
 let redirectArticleTime = 5000
 let redirectPage
 let redirectArticleListPage
