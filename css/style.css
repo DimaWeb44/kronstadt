@@ -226,19 +226,29 @@ body {
 }
 .article-list__top {
   width: 100%;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: auto 40px 1240px;
-  grid-template-columns: auto 1240px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   height: 1140px;
   grid-column-gap: 40px;
+  -webkit-transition: 1s ease;
+  transition: 1s ease;
+  -webkit-column-gap: 40px;
+     -moz-column-gap: 40px;
+          column-gap: 40px;
 }
 .article-list__top__article-1 {
-  width: 100%;
+  width: 2558px;
   height: 100%;
   overflow: hidden;
   position: relative;
   background-color: #6A7A7E;
+  -webkit-transition: 1s ease;
+  transition: 1s ease;
 }
 .article-list__top__article-1 .article-img {
   -o-object-fit: cover;
@@ -261,7 +271,7 @@ body {
   position: absolute;
   top: 100px;
   left: 174px;
-  right: 680px;
+  width: 1700px;
   font-family: "Helvetica Neue", sans-serif;
   font-size: 140px;
   font-weight: 500;
@@ -277,13 +287,19 @@ body {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
+  width: 1240px;
+  -webkit-transition: 1s ease;
+  transition: 1s ease;
 }
 .article-list .article-4 .article-title {
   font-family: "Helvetica Neue", sans-serif;
   font-size: 100px;
   font-weight: 500;
   line-height: 104px;
-  right: 440px;
+  width: 630px;
+}
+.article-list .article-4 .anime-article-7 .article-title {
+  width: 1086px;
 }
 .article-list .article-4 .article-img {
   -o-object-fit: cover;
@@ -297,10 +313,13 @@ body {
   position: relative;
   background-color: #6A7A7E;
   height: 1022px;
+  width: 2340px;
+  -webkit-transition: 1s ease;
+  transition: 1s ease;
 }
 .article-list .article-3 .article-title {
   left: 210px;
-  right: 616px;
+  width: 1504px;
 }
 .article-list .article-3 .article-line-3 {
   position: absolute;
@@ -315,6 +334,26 @@ body {
   z-index: 2;
   margin-top: -130px;
   overflow: visible;
+  width: 1460px;
+  -webkit-transition: 1s ease;
+  transition: 1s ease;
+}
+.article-list .article-2 .article-title {
+  width: 1076px;
+  font-family: "Helvetica Neue", serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 100px;
+  line-height: 104px;
+  letter-spacing: 0.04em;
+}
+.article-list .article-2 .anime-article-6 .article-title {
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 140px;
+  font-weight: 500;
+  line-height: 144px;
+  left: 174px;
+  width: 3042px;
 }
 .article-list .article-2 .article-line-2 {
   position: absolute;
@@ -337,24 +376,31 @@ body {
   display: grid;
   -ms-grid-columns: 174px auto;
   grid-template-columns: 174px auto;
+  -webkit-transition: 1s ease;
+  transition: 1s ease;
 }
 .article-list .article-2 .article-line-2-1 span:first-child {
   background-color: #6A7A7E;
 }
 .article-list .article-2 .article-number {
   bottom: 152px;
-  left: 120px;
+  left: 174px;
   top: auto;
   right: auto;
 }
 .article-list__bottom {
   width: 100%;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1460px 40px auto;
-  grid-template-columns: 1460px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   min-height: 1022px;
-  grid-column-gap: 40px;
+  -webkit-column-gap: 40px;
+     -moz-column-gap: 40px;
+          column-gap: 40px;
 }
 
 .panel {
@@ -398,18 +444,17 @@ body {
   height: 100vh;
   z-index: 1;
 }
-.article-page-2 .article-list__top {
-  -ms-grid-columns: auto auto;
-  grid-template-columns: auto auto;
-}
 .article-page-2 .article-list__top .article-list__top__article-1 {
   background-color: #6A7A7E;
 }
 .article-page-2 .article-list__top .article-5 {
-  min-width: 1900px;
+  width: 2153px;
+}
+.article-page-2 .article-list__top .article-5 .article-title {
+  width: 1500px;
 }
 .article-page-2 .article-list__top .article-7 {
-  min-width: 1280px;
+  width: 1649px;
 }
 .article-page-2 .article-list__top .article-7 .article-number {
   bottom: 49px;
@@ -423,15 +468,15 @@ body {
   font-weight: 500;
   line-height: 104px;
   left: 174px;
-  right: 370px;
-}
-.article-page-2 .article-list__bottom {
-  -ms-grid-columns: auto;
-  grid-template-columns: auto;
+  width: 1086px;
 }
 .article-page-2 .article-list__bottom .article-list__top__article-1 {
   overflow: visible;
   position: relative;
+  width: 100%;
+}
+.article-page-2 .article-list__bottom .article-list__top__article-1 .article-title {
+  width: 3042px;
 }
 .article-page-2 .article-list__bottom .article-list__top__article-1 .article-number {
   bottom: 84px;
@@ -3323,4 +3368,104 @@ mark {
   opacity: 0;
   z-index: -999;
   position: absolute;
+}
+
+.anime-article-page .article-list__top .article-list__top__article-1 {
+  width: 2153px;
+  -webkit-transition: 1s ease;
+  transition: 1s ease;
+}
+.anime-article-page .article-list__top .article-4 {
+  width: 1649px;
+  -webkit-transition: 1s ease;
+  transition: 1s ease;
+}
+.anime-article-page .article-list__bottom .article-2 {
+  width: 3840px;
+  -webkit-transition: 1s ease;
+  transition: 1s ease;
+  height: 1020px;
+  margin-top: 0;
+}
+.anime-article-page .article-list__bottom .article-list__top__article-1 {
+  overflow: visible;
+  position: relative;
+}
+.anime-article-page .article-list__bottom .article-list__top__article-1 .article-number {
+  bottom: 152px;
+  left: 174px;
+  top: auto;
+  right: auto;
+}
+.anime-article-page .article-list__bottom .article-list__top__article-1 .article-line-2-1 {
+  position: absolute;
+  height: 40px;
+  top: -40px;
+  width: 802px;
+  left: 0;
+  z-index: 3;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 402px 220px auto;
+  grid-template-columns: 402px auto;
+  grid-column-gap: 220px;
+  background-color: transparent;
+  -webkit-transition: 1s ease;
+  transition: 1s ease;
+}
+.anime-article-page .article-list__bottom .article-list__top__article-1 .article-line-2-1 span:first-child {
+  background-color: #66B1BD;
+}
+.anime-article-page .article-list__bottom .article-list__top__article-1 .article-line-2-1 span:last-child {
+  background-color: #D3CFCC;
+}
+.anime-article-page .anime-article-6, .anime-article-page .anime-article-5, .anime-article-page .anime-article-7 {
+  opacity: 1;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+.anime-article-page .anime-article-1, .anime-article-page .anime-article-4, .anime-article-page .anime-article-2, .anime-article-page .anime-article-3 {
+  opacity: 0;
+  -webkit-transition: 1s;
+  transition: 1s;
+  width: 100%;
+}
+.anime-article-page .anime-article-2 {
+  overflow: hidden;
+  height: 1020px;
+}
+
+.anime-article-6, .anime-article-5, .anime-article-7 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  -webkit-transition: 1s;
+  transition: 1s;
+  top: 0;
+}
+
+.anime-article-1, .anime-article-4, .anime-article-2, .anime-article-3 {
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+.anime-article-4 {
+  width: 100%;
+}
+
+.anime-article-1 {
+  height: 1140px;
+}
+
+.anime-article-2 {
+  width: 100%;
+  height: 1152px;
+}
+
+.anime-article-7 .article-number {
+  bottom: 49px;
+  left: 174px;
+  top: auto;
+  right: auto;
 }

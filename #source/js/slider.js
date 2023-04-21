@@ -38,7 +38,8 @@ const runTimer = () => {
 
 const runTimerArticle = () => {
     redirectArticleListPage = setInterval(() => {
-      document.querySelector('.panel-next-anim').click()
+     /* document.querySelector('.panel-next-anim').click()*/
+    document.querySelector('.article-page-1').classList.toggle('anime-article-page')
     }, redirectArticleTime)
 }
 

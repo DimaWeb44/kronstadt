@@ -109,17 +109,20 @@
 
   &__top {
     width: 100%;
-    display: grid;
-    grid-template-columns: auto 1240px;
+    display: flex;
+    flex-direction: row;
     height: 1140px;
     grid-column-gap: 40px;
+    transition: 1s ease;
+    column-gap: 40px;
 
     &__article-1 {
-      width: 100%;
+      width: 2558px;
       height: 100%;
       overflow: hidden;
       position: relative;
       background-color: $bg-gray;
+      transition: 1s ease;
 
       & .article-img {
         object-fit: cover;
@@ -140,7 +143,7 @@
         position: absolute;
         top: 100px;
         left: 174px;
-        right: 680px;
+        width: 1700px;
         @include text(140px, 500, 144px);
         letter-spacing: 0.04em;
         color: $text-color;
@@ -152,10 +155,18 @@
     background-color: $bg-dark-gray;
     display: flex;
     align-items: flex-end;
+    width: 1240px;
+    transition: 1s ease;
 
     & .article-title {
       @include text(100px, 500, 104px);
-      right: 440px;
+      width: 630px;
+    }
+
+    & .anime-article-7 {
+      .article-title {
+        width: 1086px;
+      }
     }
 
     & .article-img {
@@ -170,10 +181,12 @@
     position: relative;
     background-color: $bg-gray;
     height: 1022px;
+    width: 2340px;
+    transition: 1s ease;
 
     & .article-title {
       left: 210px;
-      right: 616px;
+      width: 1504px;
     }
 
     & .article-line-3 {
@@ -191,6 +204,26 @@
     z-index: 2;
     margin-top: -130px;
     overflow: visible;
+    width: 1460px;
+    transition: 1s ease;
+
+    & .article-title {
+      width: 1076px;
+      font-family: 'Helvetica Neue', serif;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 100px;
+      line-height: 104px;
+      letter-spacing: 0.04em;
+    }
+
+    & .anime-article-6 {
+      & .article-title {
+        @include text(140px, 500, 144px);
+        left: 174px;
+        width: 3042px;
+      }
+    }
 
     & .article-line-2 {
       position: absolute;
@@ -212,6 +245,7 @@
       z-index: 3;
       display: grid;
       grid-template-columns: 174px auto;
+      transition: 1s ease;
 
       & span:first-child {
         background-color: $bg-gray;
@@ -220,7 +254,7 @@
 
     & .article-number {
       bottom: 152px;
-      left: 120px;
+      left: 174px;
       top: auto;
       right: auto;
     }
@@ -228,10 +262,10 @@
 
   &__bottom {
     width: 100%;
-    display: grid;
-    grid-template-columns: 1460px auto;
+    display: flex;
+    flex-direction: row;
     min-height: 1022px;
-    grid-column-gap: 40px;
+    column-gap: 40px;
   }
 }
 
@@ -267,18 +301,21 @@
   z-index: 1;
 
   & .article-list__top {
-    grid-template-columns: auto auto;
 
     & .article-list__top__article-1 {
       background-color: $bg-gray;
     }
 
     & .article-5 {
-      min-width: 1900px;
+      width: 2153px;
+
+      & .article-title {
+        width: 1500px;
+      }
     }
 
     & .article-7 {
-      min-width: 1280px;
+      width: 1649px;
 
       & .article-number {
         bottom: 49px;
@@ -290,17 +327,21 @@
       & .article-title {
         @include text(100px, 500, 104px);
         left: 174px;
-        right: 370px;
+        width: 1086px;
       }
     }
   }
 
   & .article-list__bottom {
-    grid-template-columns: auto;
 
     & .article-list__top__article-1 {
       overflow: visible;
       position: relative;
+      width: 100%;
+
+      & .article-title {
+        width: 3042px;
+      }
 
       & .article-number {
         bottom: 84px;
@@ -2646,6 +2687,9 @@ mark {
   }
 }
 
+
+//____________________________________________________________________________________________________animePage
+
 [data-barba='wrapper'] {
   position: relative;
 }
@@ -2688,3 +2732,115 @@ mark {
   z-index: -999;
   position: absolute;
 }
+
+.anime-article-page {
+  & .article-list__top {
+    & .article-list__top__article-1 {
+      width: 2153px;
+      transition: 1s ease;
+    }
+
+    & .article-4 {
+      width: 1649px;
+      transition: 1s ease;
+    }
+  }
+
+  & .article-list__bottom {
+
+    & .article-2 {
+      width: 3840px;
+      transition: 1s ease;
+      height: 1020px;
+      margin-top: 0;
+    }
+
+    & .article-list__top__article-1 {
+      overflow: visible;
+      position: relative;
+
+      & .article-number {
+        bottom: 152px;
+        left: 174px;
+        top: auto;
+        right: auto;
+      }
+
+      & .article-line-2-1 {
+        position: absolute;
+        height: 40px;
+        top: -40px;
+        width: 802px;
+        left: 0;
+        z-index: 3;
+        display: grid;
+        grid-template-columns: 402px auto;
+        grid-column-gap: 220px;
+        background-color: transparent;
+        transition: 1s ease;
+
+        & span:first-child {
+          background-color: $bg-blue;
+        }
+
+        & span:last-child {
+          background-color: $bg-light-gray;
+        }
+
+      }
+    }
+  }
+
+  & .anime-article-6, .anime-article-5, .anime-article-7 {
+    opacity: 1;
+    transition: 1s;
+  }
+
+  & .anime-article-1, .anime-article-4, .anime-article-2, .anime-article-3 {
+    opacity: 0;
+    transition: 1s;
+    width: 100%;
+  }
+
+  & .anime-article-2 {
+    overflow: hidden;
+    height: 1020px;
+  }
+}
+
+.anime-article-6, .anime-article-5, .anime-article-7 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: 1s;
+  top: 0;
+}
+
+.anime-article-1, .anime-article-4, .anime-article-2, .anime-article-3 {
+  transition: 1s;
+}
+
+.anime-article-4 {
+  width: 100%;
+}
+
+.anime-article-1 {
+  height: 1140px;
+}
+
+.anime-article-2 {
+  width: 100%;
+  height: 1152px;
+}
+
+.anime-article-7 {
+  & .article-number {
+    bottom: 49px;
+    left: 174px;
+    top: auto;
+    right: auto;
+  }
+}
+
+
