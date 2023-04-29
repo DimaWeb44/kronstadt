@@ -44,4 +44,9 @@ video && video.forEach((el) => {
         "</svg>\n";
     }
   });
+
+  video.addEventListener("timeupdate", function() {
+    let progress = Math.floor(video.currentTime) / Math.floor(video.duration) * 100;
+    playButton.style.setProperty('--width', progress + "%")
+  }, false);
 })

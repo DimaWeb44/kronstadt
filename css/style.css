@@ -2024,14 +2024,19 @@ video {
   -webkit-transform: translate(-50%, 0);
           transform: translate(-50%, 0);
   width: 954px;
+  --width: 0;
 }
 .play-pause::before {
   position: absolute;
   content: "";
   height: 100%;
   left: 0;
-  width: 57px;
+  width: var(--width);
   background-color: #000000;
+  z-index: 0;
+}
+.play-pause svg {
+  z-index: 1;
 }
 
 .close-btn {
