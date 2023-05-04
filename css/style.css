@@ -526,7 +526,7 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  row-gap: 6px;
+  row-gap: 5px;
   overflow-y: scroll;
   -ms-overflow-style: none;
   overflow: -moz-scrollbars-none;
@@ -538,7 +538,7 @@ body {
 .left-menu ul li {
   overflow: hidden;
   background-color: #3F4040;
-  min-height: 327px;
+  min-height: 333px;
   height: 100%;
   width: 100%;
   font-weight: 500;
@@ -3473,4 +3473,56 @@ mark {
   left: 174px;
   top: auto;
   right: auto;
+}
+
+.article-list-menu .article-list__top__article-1 {
+  width: 1938px;
+}
+.article-list-menu .article-list__top__article-1 .anime-article-1 .article-title {
+  width: 1294px;
+}
+.article-list-menu .article-list__top__article-1 .anime-article-5 .article-title {
+  width: 1200px;
+}
+.article-list-menu .article-4 {
+  width: 1240px;
+}
+.article-list-menu .article-4 .article-title {
+  width: 630px;
+}
+.article-list-menu .article-2 {
+  width: 1540px;
+}
+.article-list-menu .article-2 .anime-article-2 .article-title {
+  width: 1076px;
+}
+.article-list-menu .article-2 .anime-article-6 .article-title {
+  width: 2800px;
+}
+.article-list-menu .article-3 {
+  width: 1640px;
+}
+.article-list-menu .article-3 .article-title {
+  width: 1300px;
+}
+.article-list-menu .article-3 .article-number {
+  bottom: 90px;
+  top: auto;
+  left: 187px;
+  right: auto;
+}
+.article-list-menu .anime-article-page .article-list__top__article-1 {
+  width: 1838px;
+}
+.article-list-menu .anime-article-page .article-4 {
+  width: 1340px;
+}
+.article-list-menu .anime-article-page .article-4 .article-title {
+  width: 900px;
+}
+.article-list-menu .anime-article-page .article-2 {
+  width: 3220px;
+}
+.article-list-menu .anime-article-page .article-2 .anime-article-6 .article-title {
+  width: 2800px;
 }
