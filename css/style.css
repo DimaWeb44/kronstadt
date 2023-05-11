@@ -526,7 +526,6 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  row-gap: 5px;
   overflow-y: scroll;
   -ms-overflow-style: none;
   overflow: -moz-scrollbars-none;
@@ -538,7 +537,7 @@ body {
 .left-menu ul li {
   overflow: hidden;
   background-color: #3F4040;
-  min-height: 333px;
+  min-height: 330px;
   height: 100%;
   width: 100%;
   font-weight: 500;
@@ -557,6 +556,9 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   padding: 50px 50px;
+  border-bottom-width: 5px;
+  border-bottom-color: #D3CFCC;
+  border-bottom-style: solid;
 }
 .left-menu ul .active-chapter {
   background-color: #ffffff;

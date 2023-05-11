@@ -386,7 +386,6 @@
     width: 620px;
     display: flex;
     flex-direction: column;
-    row-gap: 5px;
     overflow-y: scroll;
     -ms-overflow-style: none;
     overflow: -moz-scrollbars-none;
@@ -399,7 +398,7 @@
     & li {
       overflow: hidden;
       background-color: $bg-dark-gray;
-      min-height: 333px;
+      min-height: 330px;
       height: 100%;
       width: 100%;
       font-weight: 500;
@@ -410,6 +409,9 @@
       color: $text-color;
       @include flex-center;
       padding: 50px 50px;
+      border-bottom-width: 5px;
+      border-bottom-color: $bg-light-gray;
+      border-bottom-style: solid;
     }
 
     & .active-chapter {

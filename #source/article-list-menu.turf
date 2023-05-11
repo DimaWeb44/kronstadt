@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="./lib/slider/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="./lib/slider/slick-theme.css"/>
     <link rel="stylesheet" type="text/css" href="./css/style.css">
     <title>Список</title>
 </head>
@@ -11,8 +13,24 @@
     <!--@import "article-list-menu.html"-->
 </div>
 <script type="text/javascript" src="./lib/jquery.min.js"></script>
+<script type="text/javascript" src="./lib/slider/slick.js"></script>
 <script type="text/javascript" src="./lib/anime.min.js"></script>
 <script type="text/javascript" src="./lib/barba.min.js"></script>
 <script type="text/javascript" src="./js/main.js"></script>
+<script type="text/javascript">
+  $('.slider-loop').length && $('.slider-loop').slick({
+    arrows: true,
+    dots: false,
+    infinite: true,
+    slidesToShow: 6,
+    slidesToScroll: 1,
+    vertical: true,
+    verticalSwiping: true,
+    swipeToSlide: true,
+    appendArrows: $('.left-panel'),
+    prevArrow: $('.left-panel-top'),
+    nextArrow: $('.left-panel-bottom'),
+  });
+</script>
 </body>
 </html>
