@@ -1266,13 +1266,19 @@
     nextArrow: $('.next-gallery__slider-big'),
   });
 
+  let slidesToShow  = 7;
+  let childElements = $('.gallery__slider-small').children().length;
+  if( slidesToShow > (childElements-1) ) {
+    slidesToShow = (childElements-1);
+  }
+
   $('.gallery__slider-small').length && $('.gallery__slider-small').slick({
     arrows: true,
     dots: false,
     infinite: true,
-    slidesToShow: 7,
+    slidesToShow: slidesToShow,
     centerMode: true,
-    slidesToScroll: 2,
+    slidesToScroll: 1,
     centerPadding: '200px',
     focusOnSelect: true,
     appendArrows: $('.gallery__slider-small-btn'),

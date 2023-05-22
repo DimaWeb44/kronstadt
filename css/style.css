@@ -2076,7 +2076,7 @@ video {
   height: 258px;
   width: 492px;
   overflow: hidden;
-  /* margin: 0 auto;*/
+  margin: 0 auto;
 }
 .gallery-box__slider-bottom .gallery__slider-small .slide-small img {
   -o-object-fit: cover;
@@ -2173,9 +2173,9 @@ video {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: end;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
 .slide-big {
@@ -2192,7 +2192,7 @@ video {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: end;
-  height: 1608px;
+  height: 1722px;
   width: 100%;
   position: relative;
 }

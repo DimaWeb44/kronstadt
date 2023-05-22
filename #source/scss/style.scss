@@ -1724,7 +1724,7 @@ video {
         height: 258px;
         width: 492px;
         overflow: hidden;
-        /* margin: 0 auto;*/
+         margin: 0 auto;
 
         & img {
           object-fit: cover;
@@ -1797,7 +1797,7 @@ video {
   width: 3840px;
   height: 1722px;
   display: flex;
-  align-items: end;
+  align-items: flex-start
 }
 
 .slide-big {
@@ -1805,7 +1805,7 @@ video {
   flex-direction: column;
   align-items: center;
   justify-content: end;
-  height: 1608px;
+  height: 1722px;
   width: 100%;
   position: relative;
 
